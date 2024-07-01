@@ -21,7 +21,6 @@ add_action('wp_enqueue_scripts', 'paladinwebgroup_enqueue');
 function paladinwebgroup_enqueue()
 {
     wp_enqueue_style('paladinwebgroup-style', get_stylesheet_uri());
-    wp_enqueue_style('normalize-style', get_template_directory_uri() . '/assets/css/inc/normalize.css');
     wp_enqueue_style('main-styles-style', get_template_directory_uri() . '/assets/css/main.css');
     wp_enqueue_script('jquery');
     wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), NULL, true);

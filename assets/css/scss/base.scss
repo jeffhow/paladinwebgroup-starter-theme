@@ -1,7 +1,9 @@
 :root {
     // common vars
+    --trx: all 0.3s ease;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09); // box shadow
     --hfont:"Noto Sans", sans-serif;
+    --site-logo-uri: url('../images/deadline-comics.svg')
 }
 * {
     box-sizing: border-box;
@@ -52,3 +54,4 @@ p {
     line-height: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
