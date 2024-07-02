@@ -380,4 +380,15 @@ p {
   overflow: hidden;
 }
 
+#search [type=submit]::before {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  content: "\f007";
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 /*# sourceMappingURL=main.css.map */
