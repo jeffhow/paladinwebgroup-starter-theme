@@ -24,6 +24,7 @@ function paladinwebgroup_enqueue()
     wp_enqueue_style('main-styles-style', get_template_directory_uri() . '/assets/css/main.css');
     wp_enqueue_script('jquery');
     wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), NULL, true);
+    wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), NULL, true);
 }
 add_action('wp_footer', 'paladinwebgroup_footer');
 function paladinwebgroup_footer()

@@ -1,4 +1,4 @@
-const btn = document.querySelector(".btn-toggle");
+const dk_switch = document.querySelector("#dark-mode-toggle");
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 const currentTheme = localStorage.getItem("theme");
@@ -8,7 +8,7 @@ if (currentTheme == "dark") {
   document.body.classList.toggle("light-theme");
 }
 
-btn.addEventListener("click", function () {
+dk_switch.addEventListener("click", function () {
   if (prefersDarkScheme.matches) {
     document.body.classList.toggle("light-theme");
     var theme = document.body.classList.contains("light-theme")
