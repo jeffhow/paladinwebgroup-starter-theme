@@ -4,13 +4,27 @@
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09); // box shadow
     --hfont:"Noto Sans", sans-serif;
     --site-logo-uri: url('../images/deadline-comics.svg');
-    --primary-color: red; // add this to dk-mode rules
+    --site-logo-width: 153px;
+    --primary-color: red; // @todo: add this to dk-mode rules
+    --secondary-bkg-color: #ccc; //@todo: dk-mode
+    --links-color: #555; //@todo: darkmode
+    --wpadminbar: 0px;
 }
 * {
     box-sizing: border-box;
 }
 html {
     font-size: 16px;
+}
+
+// dealing with the wpadminbar height
+body:has(#wpadminbar) {
+    --wpadminbar: 32px
+}
+@media screen and (max-width: 782px) {
+    body:has(#wpadminbar) {
+        --wpadminbar: 46px;
+    }
 }
 
 // Dark Mode settings
@@ -38,8 +52,15 @@ body {
   background: var(--bkg-color);
 }
 
-h1,h2,h3,h4,h5,h6,div,span,time,address,li,p {
+h1,h2,h3,h4,h5,h6,p {
     color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+a:hover, a:active a:focus-visible {
+    text-decoration: underline;
 }
 
 // fonts
@@ -61,6 +82,24 @@ button, input {
 }
 label {
     display: inline-block;
+}
+// Macro-layout
+body > #wrapper {
+    min-height: calc(100vh - var(--wpadminbar));
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.site-main, .site-header, .site-footer, .site-widgets {
+    max-width: 1280px;
+    padding: 1rem;
+}
+
+// make those buttons visable in tabs
+button:focus-visible {
+    outline: var(--text-color) auto 1px;
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-offset: 1px;   
 }
 
 // Switches

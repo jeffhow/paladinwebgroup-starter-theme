@@ -19,7 +19,7 @@
                             echo '<h1>'; 
                         }
                         
-                        echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url"><span itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span></a>';
+                        echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url" tabindex="2"><span itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span></a>';
                         
                         if ( is_front_page() || is_home() || is_front_page() && is_home() ) {
                             echo '</h1>'; 
@@ -35,19 +35,31 @@
                 role="navigation" 
                 itemscope itemtype="https://schema.org/SiteNavigationElement"
                 aria-expanded="false">
-                <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
-
                 
-                <div id="search"><?php get_search_form(); ?></div>
-                
-                <div class="form-check form-switch dark-mode-switch">
-                    <label class="form-check-label" aria-label="Toggle dark-mode">
-                        <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle" checked="">
-                    </label>
-                    <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
-                </div>
-            </nav>
+                <div class="nav-container">
+                    <!-- nav -->
+                        <?php 
+                            wp_nav_menu( 
+                                array( 
+                                    'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s" tabindex="-1">%3$s</ul>',
+                                ) 
+                            ); 
+                        ?>
+                    <!-- search -->
+                        <div id="search"><?php get_search_form(); ?></div>
+                    <!-- Dk-mode -->
+                        <div class="form-check form-switch dark-mode-switch">
+                            <label class="form-check-label" aria-label="Toggle dark-mode">
+                                <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle" checked="">
+                            </label>
+                            <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <a href="#" class="skip-link screen-reader-text" id="close-menu-btn">Close Menu</a>
+                </nav>
             <button class="nav-toggle" 
+                    tabindex="3"
                     aria-label="Navigation menu" 
                     aria-haspopup="true" 
                     aria-controls="menu">
@@ -57,4 +69,4 @@
             </button>
         </header>
         <div id="container">
-            <main id="content" role="main">
+            <main id="content" role="main" class="site-main">

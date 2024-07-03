@@ -10,10 +10,38 @@ function hamToggle(){
 ham.addEventListener('click', hamToggle);
 
 function closeMenu(){
-    ham.attributes['aria-expanded'].value = false;
-    ham.classList.remove('open');
+    menu.attributes['aria-expanded'].value = false;
+    menu.classList.remove('open');
 }
 
 links.forEach(function(l){
     l.addEventListener('click', closeMenu);
 });
+
+
+// remove aria-expanded on desktop
+function viewDesktop() {
+    menu.removeAttribute('aria-expanded');
+    menu.classList.remove('open');
+}
+
+// add aria-expanded if needed
+function viewMobile(){
+    if(!menu.hasAttribute('aria-expanded')) {
+        menu.setAttribute('aria-expanded', false)
+    }
+}
+
+addEventListener("resize", (event) => {
+    if (window.innerWidth < 782) {
+        viewMobile()
+        
+    }else {
+        viewDesktop()
+    }
+});
+
+
+if (window.innerWidth >= 782) {
+    viewDesktop();
+}

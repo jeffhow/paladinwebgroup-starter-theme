@@ -100,7 +100,7 @@ if (!function_exists('paladinwebgroup_wp_body_open')) {
 add_action('wp_body_open', 'paladinwebgroup_skip_link', 5);
 function paladinwebgroup_skip_link()
 {
-    echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__('Skip to the content', 'paladinwebgroup') . '</a>';
+    echo '<a href="#content" class="skip-link screen-reader-text" tabindex="1">' . esc_html__('Skip to the content', 'paladinwebgroup') . '</a>';
 }
 add_filter('the_content_more_link', 'paladinwebgroup_read_more_link');
 function paladinwebgroup_read_more_link()
