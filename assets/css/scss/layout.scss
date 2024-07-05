@@ -1,0 +1,13 @@
+// Macro-layout
+body > #wrapper {
+    min-height: calc(100vh - var(--wpadminbar));
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.site-main, .site-header, .site-footer, .site-widgets {
+    max-width: 1280px;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 100%;
+}

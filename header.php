@@ -49,11 +49,11 @@
                     <!-- search -->
                         <div id="search"><?php get_search_form(); ?></div>
                     <!-- Dk-mode -->
-                        <div class="form-check form-switch dark-mode-switch">
+                        <div class="form-check form-switch dark-mode-switch dk-mode-toggle">
                             <label class="form-check-label" aria-label="Toggle dark-mode">
                                 <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle" checked="">
+                                <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
                             </label>
-                            <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
                         </div>
                     </div>
                     <a href="#" class="skip-link screen-reader-text" id="close-menu-btn">Close Menu</a>

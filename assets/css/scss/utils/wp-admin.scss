@@ -1,0 +1,14 @@
+// dealing with the wpadminbar height
+:root {
+    --wpadminbar: 0px;
+}
+
+body:has(#wpadminbar) {
+    --wpadminbar: 32px
+}
+
+@media screen and (max-width: 782px) {
+    body:has(#wpadminbar) {
+        --wpadminbar: 46px;
+    }
+}
