@@ -23,3 +23,4 @@ PaladinWebGroup Starter
     `sass ./assets/css/main.scss ./assets/css/main.css`
 
 5. Modify `/assets/inc/google-fonts.php` as necessary
+6. Remove template helper in footer.php
