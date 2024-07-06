@@ -370,6 +370,15 @@ a:hover, a:active a:focus-visible {
 
 h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
   font-family: var(--hfont);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
 }
 
 p {
@@ -396,6 +405,28 @@ button:focus-visible {
   outline-offset: 1px;
 }
 
+.entry-title {
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.entry-title:has(~ .entry-meta) {
+  margin-bottom: 0.5rem;
+}
+.entry-title + .post-edit-link {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.entry-title + .post-edit-link:before {
+  content: "(";
+}
+.entry-title + .post-edit-link:after {
+  content: ")";
+}
+
+.entry-meta {
+  margin-bottom: 1rem;
+}
+
 :root {
   --wpadminbar: 0px;
 }
@@ -420,6 +451,11 @@ body > #wrapper {
   padding: 1rem;
   margin: 0 auto;
   width: 100%;
+}
+
+body > #wrapper > #container {
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 .site-header {
@@ -628,21 +664,52 @@ body > #wrapper {
     display: none;
   }
 }
-#search .search-form {
+.search-form {
   display: flex;
 }
-#search .search-field {
+.search-form .search-field {
   border-right: none;
   border-radius: var(--bdrs) 0 0 var(--bdrs);
   height: 40px;
 }
-#search .search-submit {
+.search-form .search-submit {
   border: 1px solid var(--color-fg-buttons);
   color: var(--color-fg-button);
   background-color: var(--color-bg-buttons);
   border-radius: 0 var(--bdrs) var(--bdrs) 0;
   width: 2.5rem;
   height: 40px;
+}
+
+.wp-block-search__label {
+  margin-bottom: 0.125rem;
+}
+
+.search-results .entry-title {
+  margin-bottom: 0.5rem;
+}
+.search-results .site-main > header .entry-title {
+  color: var(--color-fg-secondary);
+}
+.search-results .search-result-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+.search-results .search-result-item .thumbnail-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.search-results .search-result-item .thumbnail-container img {
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--bdrs);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
 
 .form-switch {
@@ -821,6 +888,14 @@ body > #wrapper {
   border-radius: 0;
   box-shadow: none;
   margin-bottom: 0.5rem;
+}
+
+.site-widgets .widget-container {
+  margin-bottom: 1rem;
+}
+.site-widgets .widget-container:first-child {
+  border-top: 1px solid var(--color-fg-secondary);
+  padding-top: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

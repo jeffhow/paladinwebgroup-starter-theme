@@ -11,3 +11,8 @@ body > #wrapper {
     margin: 0 auto;
     width: 100%;
 }
+
+body > #wrapper > #container {
+    display: grid;
+    grid-template-rows: 1fr auto; // stick generic widgets to bottom
+}

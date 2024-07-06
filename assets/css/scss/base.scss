@@ -74,6 +74,13 @@ a:hover, a:active a:focus-visible {
 
 h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 * {
     font-family: var(--hfont);
+    font-weight: 800;
+}
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.75rem;
 }
 
 p {
@@ -101,3 +108,24 @@ button:focus-visible {
     outline-offset: 1px;   
 }
 
+
+.entry-title {
+    margin-bottom: 1rem;
+    display: inline-block;
+    &:has(~ .entry-meta) {
+        margin-bottom: 0.5rem;
+    }
+    & + .post-edit-link {
+        display: inline-block;
+        margin-left: .5rem;
+        &:before{
+            content:'('
+        }
+        &:after {
+            content: ')'
+        }
+    }
+}
+.entry-meta {
+    margin-bottom: 1rem;
+}

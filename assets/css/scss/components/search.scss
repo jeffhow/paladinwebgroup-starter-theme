@@ -1,7 +1,5 @@
-#search {
-    .search-form {
-        display: flex;
-    }
+.search-form {
+    display: flex;
     .search-field {
         border-right:none;
         border-radius: var(--bdrs) 0 0 var(--bdrs);
@@ -15,4 +13,41 @@
         width: 2.5rem; // fouc prevention in FA icon
         height: 40px;
     }
+}
+
+// generic search widget
+.wp-block-search__label {
+    margin-bottom: .125rem;
+}
+
+.search-results {
+    .entry-title {
+        margin-bottom: 0.5rem;
+    }
+    
+    .site-main > header .entry-title {
+        color: var(--color-fg-secondary);
+    }
+    .search-result-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+
+        .thumbnail-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            img {
+                position: absolute;
+                object-fit: cover;
+                object-position: center;
+                border-radius: var(--bdrs);
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+    
 }

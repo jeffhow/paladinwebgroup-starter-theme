@@ -1,0 +1,10 @@
+.site-widgets {
+    .widget-container {
+        margin-bottom: 1rem;
+        &:first-child {
+            border-top: 1px solid var(--color-fg-secondary);
+            padding-top: 1rem;
+        }
+    }
+}
+
