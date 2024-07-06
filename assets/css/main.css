@@ -380,6 +380,7 @@ p {
 button,
 input[type=text],
 input[type=submit],
+input[type=search],
 textarea, input {
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -788,12 +789,16 @@ body > #wrapper {
   max-width: 600px;
   margin: auto;
 }
+#comments .comment-respond .comment-form .comment-notes {
+  font-style: italic;
+}
 #comments .comment-respond .comment-form label {
   display: block;
   margin-bottom: 0.125rem;
 }
-#comments .comment-respond .comment-form input {
+#comments .comment-respond .comment-form input, #comments .comment-respond .comment-form textarea {
   margin-bottom: 0.5rem;
+  width: 100%;
 }
 #comments .comment-respond .comment-form [type=checkbox] + label,
 #comments .comment-respond .comment-form label + [type=checkbox] {
@@ -805,6 +810,10 @@ body > #wrapper {
 #comments .comment-respond .comment-form [type=checkbox] {
   width: 1rem;
   height: 1rem;
+}
+#comments .comment-respond .comment-form input[type=submit] {
+  display: inline-block;
+  width: auto;
 }
 #comments .comment-respond .comment-form p {
   border: none;

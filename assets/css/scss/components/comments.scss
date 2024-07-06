@@ -92,13 +92,19 @@
         .comment-form {
             max-width: 600px;
             margin: auto;
+            .comment-notes {
+                font-style: italic;
+
+            }
             label {
                 display: block;
                 margin-bottom: 0.125rem;
             }
-            input {
+            input, textarea {
                 margin-bottom: .5rem;
+                width: 100%;
             }
+            
             [type="checkbox"]+label,
             label+[type="checkbox"] {
                 display: inline;
@@ -111,7 +117,11 @@
                 width: 1rem;
                 height: 1rem;
             }
-          
+        
+            input[type="submit"] {
+                display: inline-block;
+                width: auto;
+            }
             
             p {
                 border: none;
