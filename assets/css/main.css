@@ -480,6 +480,9 @@ body > #wrapper > #container {
   margin: auto;
   transition: var(--trx);
 }
+#branding #site-title h1 {
+  font-size: 3rem;
+}
 #branding #site-title:hover {
   filter: drop-shadow(0 0 0.75rem crimson);
 }
