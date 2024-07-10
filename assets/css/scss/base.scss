@@ -22,6 +22,8 @@
     --color-bg-buttons: #eee;
 
     --color-bg-default: #fff;
+    --color-bg-nav: #aaa;
+    --color-bg-nav-secondary: #888;
     --color-bg-primary: #BADA55;
     --color-bg-secondary: #ccc;
 }
@@ -36,7 +38,23 @@ html {
 // Dark Mode settings
 body.dark-theme {
     --color-fg-default: #eee;
+    
+    --color-fg-primary: #f00;
+    --color-fg-secondary: #626262;
+    
+    --color-fg-links: #a0a0a0; 
+    --color-fg-links-hover: #808080;
+    
+    --color-fg-buttons:#bebdbd;
+    --color-bg-buttons: #232323;
+    
     --color-bg-default: #121212;
+    --color-bg-nav: #333;
+    --color-bg-nav-secondary: #111;
+
+    --color-bg-primary: #2e3515;
+    --color-bg-secondary: #464545;
+
 }
 
 @media (prefers-color-scheme: dark) {

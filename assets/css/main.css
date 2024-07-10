@@ -318,6 +318,8 @@ section {
   --color-fg-buttons:#333;
   --color-bg-buttons: #eee;
   --color-bg-default: #fff;
+  --color-bg-nav: #aaa;
+  --color-bg-nav-secondary: #888;
   --color-bg-primary: #BADA55;
   --color-bg-secondary: #ccc;
 }
@@ -332,7 +334,17 @@ html {
 
 body.dark-theme {
   --color-fg-default: #eee;
+  --color-fg-primary: #f00;
+  --color-fg-secondary: #626262;
+  --color-fg-links: #a0a0a0;
+  --color-fg-links-hover: #808080;
+  --color-fg-buttons:#bebdbd;
+  --color-bg-buttons: #232323;
   --color-bg-default: #121212;
+  --color-bg-nav: #333;
+  --color-bg-nav-secondary: #111;
+  --color-bg-primary: #2e3515;
+  --color-bg-secondary: #464545;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -500,7 +512,7 @@ body > #wrapper > #container {
   padding: 20px;
   left: 0;
   top: calc(4rem + var(--wpadminbar));
-  background-color: var(--color-bg-default);
+  background-color: var(--color-bg-nav);
   transition: var(--trx);
   text-align: center;
   box-shadow: var(--bs);
@@ -626,22 +638,22 @@ body > #wrapper > #container {
   .site-nav .menu-item-has-children, .site-nav[aria-expanded] .menu-item-has-children {
     position: relative;
   }
-  .site-nav .menu-item-has-children > a:hover + .sub-menu,
-.site-nav .menu-item-has-children > a:focus-visible + .sub-menu, .site-nav[aria-expanded] .menu-item-has-children > a:hover + .sub-menu,
-.site-nav[aria-expanded] .menu-item-has-children > a:focus-visible + .sub-menu {
+  .site-nav .menu-item-has-children:hover > a + .sub-menu,
+.site-nav .menu-item-has-children:focus-visible > a + .sub-menu, .site-nav[aria-expanded] .menu-item-has-children:hover > a + .sub-menu,
+.site-nav[aria-expanded] .menu-item-has-children:focus-visible > a + .sub-menu {
     display: block;
     opacity: 1;
   }
-  .site-nav .menu-item-has-children > a:hover + .sub-menu::before,
-.site-nav .menu-item-has-children > a:focus-visible + .sub-menu::before, .site-nav[aria-expanded] .menu-item-has-children > a:hover + .sub-menu::before,
-.site-nav[aria-expanded] .menu-item-has-children > a:focus-visible + .sub-menu::before {
+  .site-nav .menu-item-has-children:hover > a + .sub-menu::before,
+.site-nav .menu-item-has-children:focus-visible > a + .sub-menu::before, .site-nav[aria-expanded] .menu-item-has-children:hover > a + .sub-menu::before,
+.site-nav[aria-expanded] .menu-item-has-children:focus-visible > a + .sub-menu::before {
     transform: translateY(-0.5rem);
   }
   .site-nav .sub-menu, .site-nav[aria-expanded] .sub-menu {
     position: absolute;
     top: 1.5rem;
     left: 0.5rem;
-    background-color: var(--secondary-bkg-color);
+    background-color: var(--color-bg-nav-secondary);
     padding: 1rem;
     transition: var(--trx);
     transform-origin: top;
@@ -660,7 +672,7 @@ body > #wrapper > #container {
     height: 0;
     border-left: 0.5rem solid transparent;
     border-right: 0.5rem solid transparent;
-    border-bottom: 0.5rem solid var(--secondary-bkg-color);
+    border-bottom: 0.5rem solid var(--color-bg-nav-secondary);
   }
 
   .nav-toggle {

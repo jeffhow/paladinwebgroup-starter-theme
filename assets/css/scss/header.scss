@@ -23,6 +23,7 @@
         transition: var(--trx);
         h1 {
             font-size: 3rem;
+            
         }
         &:hover {
             filter: drop-shadow(0 0 0.75rem crimson);
@@ -46,7 +47,7 @@
     padding: 20px;
     left:0;
     top: calc(4rem + var(--wpadminbar)); 
-    background-color: var(--color-bg-default);
+    background-color: var(--color-bg-nav);
     transition: var(--trx);
     text-align: center; // .centers nav-container
     box-shadow: var(--bs);
@@ -184,8 +185,8 @@
         .menu-item-has-children {
             position: relative;
         }
-        .menu-item-has-children > a:hover + .sub-menu,
-        .menu-item-has-children > a:focus-visible + .sub-menu {
+        .menu-item-has-children:hover > a + .sub-menu,
+        .menu-item-has-children:focus-visible > a + .sub-menu {
             display: block;
             // transform: scaleY(1);
             opacity: 1;
@@ -197,7 +198,7 @@
             position: absolute;
             top: 1.5rem;
             left: .5rem;
-            background-color: var(--secondary-bkg-color);
+            background-color: var(--color-bg-nav-secondary);
             padding: 1rem;
             // transform: scaleY(0);
             transition: var(--trx);
@@ -216,7 +217,7 @@
                 height: 0;
                 border-left: 0.5rem solid transparent;
                 border-right: 0.5rem solid transparent;
-                border-bottom: 0.5rem solid var(--secondary-bkg-color);
+                border-bottom: 0.5rem solid var(--color-bg-nav-secondary);
             }
         }
     }

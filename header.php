@@ -26,8 +26,7 @@
                         }
 ?>
                 </div>
-                <div id="site-description" <?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>>
-                    <?php bloginfo( 'description' ); ?></div>
+                
             </div>
             <nav 
                 class="site-nav" 
