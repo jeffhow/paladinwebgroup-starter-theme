@@ -716,6 +716,18 @@ body > #wrapper > #container {
   height: 100%;
 }
 
+.card-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: clamp(1rem, 3vw, 10rem);
+}
+.card-feed .post {
+  background-color: var(--color-bg-default);
+  box-shadow: var(--bs);
+  padding: 1rem;
+  border-radius: var(--bdrs);
+}
+
 .search-form {
   display: flex;
 }

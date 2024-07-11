@@ -1,0 +1,12 @@
+.card-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: clamp(1rem, 3vw, 10rem);
+
+    .post {
+        background-color: var(--color-bg-default);
+        box-shadow: var(--bs);
+        padding: 1rem;
+        border-radius: var(--bdrs);
+    }
+}

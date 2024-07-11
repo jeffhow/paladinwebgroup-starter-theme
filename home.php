@@ -84,17 +84,19 @@
     wp_reset_postdata();
 ?>
 
+<section class="card-feed">
 
-<?php
-    /** Normal Loop Query */
-    if ( have_posts() ) : 
-        while ( have_posts() ) : 
-            the_post();
-            get_template_part( 'entry' );
-            comments_template();
-        endwhile; 
-    endif; 
-?>
+    <?php
+        /** Normal Loop Query */
+        if ( have_posts() ) : 
+            while ( have_posts() ) : 
+                the_post();
+                get_template_part( 'entry' );
+                comments_template();
+            endwhile; 
+        endif; 
+    ?>
+</section>
 
 <?php get_template_part( 'nav', 'below' ); ?>
 <?php get_footer(); ?>
