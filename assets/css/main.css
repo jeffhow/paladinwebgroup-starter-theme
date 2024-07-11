@@ -452,6 +452,11 @@ body:has(#wpadminbar) {
     --wpadminbar: 46px;
   }
 }
+img.fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 body > #wrapper {
   min-height: calc(100vh - var(--wpadminbar));
   display: grid;
@@ -940,6 +945,48 @@ body > #wrapper > #container {
 .site-widgets .widget-container:first-child {
   border-top: 1px solid var(--color-fg-secondary);
   padding-top: 1rem;
+}
+
+.jumbotron {
+  width: 100%;
+  height: auto;
+  border: 1px solid red;
+  margin-bottom: 1rem;
+}
+.jumbotron.jumbotron-hero {
+  position: relative;
+}
+.jumbotron.jumbotron-hero .hero-image {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+.jumbotron.jumbotron-hero .jumbotron-statement {
+  text-align: center;
+  position: absolute;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: var(--bdrs);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: var(--bdrs);
+  border: 1px solid var(--color-fg-buttons);
+  background-color: var(--color-bg-buttons);
+  color: var(--color-fg-buttons);
+  transition: var(--trx);
+}
+.btn:hover, .btn:focus-visible {
+  text-decoration: none;
+  border-color: var(--color-bg-buttons);
+  background-color: var(--color-fg-buttons);
+  color: var(--color-bg-buttons);
 }
 
 /*# sourceMappingURL=main.css.map */

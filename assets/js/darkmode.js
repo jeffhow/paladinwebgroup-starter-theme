@@ -19,7 +19,6 @@ function setMode() {
   localStorage.setItem("theme", theme);
 }
 
-
 // check for changes to system pref
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
   theme = event.matches ? "dark" : "light";
@@ -30,10 +29,16 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', eve
 function darkMode() {
   document.body.classList.remove("light-theme");
   document.body.classList.add("dark-theme");
+  if (!dk_switch.checked) {
+    dk_switch.checked = true;
+  }
 }
 function lightMode() {
   document.body.classList.remove("dark-theme");
   document.body.classList.add("light-theme");
+  if (dk_switch.checked) {
+    dk_switch.checked = false;
+  }
 }
 
 dk_switch.addEventListener("click", function () {
