@@ -543,6 +543,9 @@ body > #wrapper > #container {
   padding-left: 0.5rem;
   border-left: 0.25rem solid var(--color-fg-primary);
 }
+.site-nav .dk-mode-toggle label {
+  padding-right: 1rem;
+}
 .site-nav .dk-mode-toggle .fa-eclipse {
   width: 16.007px;
   display: inline-block;
@@ -950,7 +953,6 @@ body > #wrapper > #container {
 .jumbotron {
   width: 100%;
   height: auto;
-  border: 1px solid red;
   margin-bottom: 1rem;
 }
 .jumbotron.jumbotron-hero {
@@ -963,15 +965,44 @@ body > #wrapper > #container {
 }
 .jumbotron.jumbotron-hero .jumbotron-statement {
   text-align: center;
+  width: calc(100% - 2rem);
   position: absolute;
-  padding: 1rem;
+  padding: 2rem;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: var(--bdrs);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+}
+.jumbotron.jumbotron-hero .jumbotron-statement.top {
+  top: 25%;
+}
+.jumbotron.jumbotron-hero .jumbotron-statement.middle {
+  top: 50%;
+}
+.jumbotron.jumbotron-hero .jumbotron-statement.bottom {
+  top: 75%;
+}
+.jumbotron.jumbotron-hero .jumbotron-statement.left, .jumbotron.jumbotron-hero .jumbotron-statement.center, .jumbotron.jumbotron-hero .jumbotron-statement.left {
+  left: 50%;
+}
+.jumbotron.jumbotron-hero .jumbotron-statement .jumbotron-text {
+  font-size: 2rem;
+  margin: 1rem 0;
 }
 
+@media screen and (min-width: 782px) {
+  .jumbotron.jumbotron-hero .jumbotron-statement {
+    width: auto;
+    min-width: calc(50% - 4rem);
+  }
+  .jumbotron.jumbotron-hero .jumbotron-statement.left {
+    left: 25%;
+  }
+  .jumbotron.jumbotron-hero .jumbotron-statement.right {
+    left: 75%;
+  }
+}
 .btn {
   display: inline-block;
   text-align: center;

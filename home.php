@@ -44,15 +44,19 @@
                         class="fluid hero-image"  
                     />
                 <?php endif; // has hero_image ?>
-                <div class="jumbotron-statement">
 
-                    <?php if (get_bloginfo( 'description' )): ?>
-                        <div id="site-description" <?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>>
-                            <?php bloginfo( 'description' ); ?>
-                        </div>
-                    <?php endif; // has tagline ?>
+                <?php 
+                    $v_placement = strtolower(get_field('vertical_placement')); 
+                    $h_placement = strtolower(get_field('horizontal_placement')); 
+                ?>
+                <div class="jumbotron-statement 
+                    <?php echo esc_attr($v_placement) . ' ' . esc_attr($h_placement); ?>"
+                    style="background-color: <?php the_field('background-color'); ?>;"
+                >
                         
-                    <p class="jumbotron-text"><?php the_field('mission_statement'); ?></p>
+                    <p class="jumbotron-text"><?php the_field('jumbotron_header'); ?></p>
+                    
+                    <?php the_content(); ?>
 
                     <?php 
                         $cta = get_field('call_to_action');
