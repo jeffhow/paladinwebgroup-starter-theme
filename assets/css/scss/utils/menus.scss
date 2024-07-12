@@ -1,0 +1,10 @@
+// li[class*="fa-"] {
+//     display: list-item;
+//     &::before {
+//         margin-right: .25rem;
+//     }
+// }
+
+.unclickable {
+    pointer-events: none;
+}

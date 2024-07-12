@@ -7,7 +7,7 @@
         'post_type' => 'jumbotron',
         'tax_query' => array(
             array(
-                'taxonomy' => 'jumbotron-location',
+                'taxonomy' => 'theme-location',
                 'field' => 'slug',
                 'terms' => 'home'
                 // 'terms' => 'front-page'

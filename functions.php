@@ -14,7 +14,13 @@ function paladinwebgroup_setup()
     if (!isset($content_width)) {
         $content_width = 1920;
     }
-    register_nav_menus(array('main-menu' => esc_html__('Main Menu', 'paladinwebgroup')));
+    register_nav_menus(array(
+        'main-menu' => esc_html__('Main Menu', 'paladinwebgroup'),
+        'social-menu' => esc_html__('Social Menu', 'paladinwebgroup'),
+        'corporate-menu' => esc_html__('Corporate Menu', 'paladinwebgroup'),
+        'seo-menu' => esc_html__('SEO Menu', 'paladinwebgroup'),
+        'contact-menu' => esc_html__('Contact Menu', 'paladinwebgroup'),
+    ));
 }
 
 add_action('wp_enqueue_scripts', 'paladinwebgroup_enqueue');
@@ -25,6 +31,7 @@ function paladinwebgroup_enqueue()
     wp_enqueue_script('jquery');
     wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), NULL, true);
     wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), NULL, true);
+    wp_enqueue_script('unclickable', get_template_directory_uri() . '/assets/js/unclickable.js', array(), NULL, true);
 }
 add_action('wp_footer', 'paladinwebgroup_footer');
 function paladinwebgroup_footer()
@@ -169,4 +176,42 @@ function paladinwebgroup_comment_count($count)
     } else {
         return $count;
     }
+}
+
+/**
+ * Add FA icons to menu items via ACF
+ * Add "unclickable" option to menu items via ACF
+ * https://www.advancedcustomfields.com/resources/adding-fields-menu-items/
+ */
+
+ add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+
+function my_wp_nav_menu_objects( $items, $args ) {
+    
+    // loop
+    foreach( $items as &$item ) {
+        
+        // vars
+        $icon = get_field('icon', $item);
+        $unclickable = get_field('unclickable', $item);
+
+        // append icon
+        if( $icon ) {
+            
+            $item->title = '<i class="' . $icon . '"></i> ' . $item->title;
+            
+        }
+        
+        // convert unclickable
+        if ($unclickable) {
+            // add new class to class array
+            $item->classes[] = 'unclickable';
+        }
+        
+    }
+    
+    
+    // return
+    return $items;
+    
 }

@@ -457,6 +457,10 @@ img.fluid {
   height: auto;
 }
 
+.unclickable {
+  pointer-events: none;
+}
+
 body > #wrapper {
   min-height: calc(100vh - var(--wpadminbar));
   display: grid;
@@ -687,6 +691,16 @@ body > #wrapper > #container {
     display: none;
   }
 }
+.site-footer .menus {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+}
+.site-footer .menus nav li {
+  margin-bottom: 0.5rem;
+}
+
 .blog .entry-title {
   margin-bottom: 0.5rem;
 }
@@ -718,8 +732,8 @@ body > #wrapper > #container {
 
 .card-feed {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: clamp(1rem, 3vw, 10rem);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
 }
 .card-feed .post {
   background-color: var(--color-bg-default);

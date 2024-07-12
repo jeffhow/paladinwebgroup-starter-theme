@@ -1,0 +1,11 @@
+.site-footer {
+    .menus {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: clamp(1rem, 2rem, 4rem);
+        margin-bottom: 2rem;
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
