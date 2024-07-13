@@ -215,3 +215,32 @@ function my_wp_nav_menu_objects( $items, $args ) {
     return $items;
     
 }
+
+/**
+ * Add Header option to menus via ACF
+ * https://www.advancedcustomfields.com/resources/adding-fields-menus/
+ */
+add_filter('wp_nav_menu_items', 'my_wp_nav_menu_items', 10, 2);
+
+function my_wp_nav_menu_items( $items, $args ) {
+    
+    // get menu
+    $menu = wp_get_nav_menu_object($args->menu);
+            
+    // vars
+    $menu_header = get_field('menu_header', $menu);
+    if ($menu_header) {
+        // prepend logo
+        $menu_header_item = '<li class="menu-item-header">' . $menu_header . '</li>';
+        
+        // append style
+        // $html_color = '<style type="text/css">.navigation-top{ background: '.$color.';}</style>';
+        
+        // append html
+        $items = $menu_header_item . $items;
+    }
+        
+    // return
+    return $items;
+    
+}
