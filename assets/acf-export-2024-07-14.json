@@ -1,0 +1,1109 @@
+[
+    {
+        "key": "group_6694113572eeb",
+        "title": "Call To Action Fields",
+        "fields": [
+            {
+                "key": "field_669411357faa6",
+                "label": "Hero Image",
+                "name": "hero_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_669411357feb4",
+                "label": "Header Text",
+                "name": "header_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6694113583c3b",
+                "label": "Call to Action Link",
+                "name": "call_to_action_link",
+                "aria-label": "",
+                "type": "link",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array"
+            },
+            {
+                "key": "field_669411358b9c6",
+                "label": "Text Color",
+                "name": "text_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#000000",
+                "enable_opacity": 1,
+                "return_format": "string"
+            },
+            {
+                "key": "field_669411358bf3d",
+                "label": "Background Color",
+                "name": "background_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 1,
+                "return_format": "string"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "cta"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "cta"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_66830dac46840",
+        "title": "Comic fields",
+        "fields": [
+            {
+                "key": "field_66830dacee4fe",
+                "label": "Book Title",
+                "name": "book_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Spider-man",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66830e2bee4ff",
+                "label": "Issue Number",
+                "name": "issue_no",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 1,
+                "min": "",
+                "max": "",
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66830e5cee500",
+                "label": "Page Number",
+                "name": "page_no",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 1,
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_668684130b229",
+                "label": "Chapter Title",
+                "name": "chapter_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Spider-man No More",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_668684aa0b22a",
+                "label": "Page Title",
+                "name": "page_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Spidey's had enough!",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_668685ad8f0a5",
+                "label": "Page art",
+                "name": "page_art",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_668685e18f0a6",
+                "label": "Full Script",
+                "name": "full_script",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "A description of the story",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_taxonomy",
+                    "operator": "==",
+                    "value": "comic-page-type:full-page"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_66926fd02645f",
+        "title": "Factoid fields",
+        "fields": [
+            {
+                "key": "field_6693e1f7ce5e5",
+                "label": "Icon Factoid",
+                "name": "icon_factoid",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_6693e291ce5e6",
+                "label": "Font-Awesome Icon",
+                "name": "font-awesome_icon",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Paste the FA classes, ex.: fa-solid fa-paw",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_6693e1f7ce5e5",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66926fd0bf09d",
+                "label": "Large Text",
+                "name": "large_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_6693e1f7ce5e5",
+                            "operator": "!=",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66926ff2bf09e",
+                "label": "Small Text",
+                "name": "small_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66927097fd93b",
+                "label": "Text Color",
+                "name": "text_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 0,
+                "return_format": "string"
+            },
+            {
+                "key": "field_66927003bf09f",
+                "label": "Background Image",
+                "name": "background_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_6692702cbf0a0",
+                "label": "Background Color",
+                "name": "background_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 1,
+                "return_format": "string"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "factoid"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "field",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_668e946aef6e3",
+        "title": "Jumbotron fields",
+        "fields": [
+            {
+                "key": "field_668e946b0fc4a",
+                "label": "Hero Image",
+                "name": "hero_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_668e94b60fc4b",
+                "label": "Jumbotron Header",
+                "name": "jumbotron_header",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_668e94de0fc4c",
+                "label": "Call to Action",
+                "name": "call_to_action",
+                "aria-label": "",
+                "type": "link",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array"
+            },
+            {
+                "key": "field_669017b518451",
+                "label": "Vertical Placement",
+                "name": "vertical_placement",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Top": "Top",
+                    "Middle": "Middle",
+                    "Bottom": "Bottom"
+                },
+                "default_value": "Top",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_669018c8d52b8",
+                "label": "Horizontal Placement",
+                "name": "horizontal_placement",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Left": "Left",
+                    "Center": "Center",
+                    "Right": "Right"
+                },
+                "default_value": "Center",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_6694067e4717b",
+                "label": "Text Color",
+                "name": "text_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#000000",
+                "enable_opacity": 1,
+                "return_format": "string"
+            },
+            {
+                "key": "field_669020e2390dc",
+                "label": "Background Color",
+                "name": "background_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "enable_opacity": 1,
+                "return_format": "string"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "jumbotron"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_66914f66e683c",
+        "title": "Menu Item Options",
+        "fields": [
+            {
+                "key": "field_66914f674ddfb",
+                "label": "Icon",
+                "name": "icon",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Enter the class for a <a href=\"https:\/\/fontawesome.com\/icons\" target=\"_BLANK\">Font Awesome<\/a> icon",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66915324d95ca",
+                "label": "Unclickable",
+                "name": "unclickable",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Use this to create sections in your menus.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Convert menu link to regular text.",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "nav_menu_item",
+                    "operator": "==",
+                    "value": "all"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "field",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_66914e1a91ab9",
+        "title": "Menu Options",
+        "fields": [
+            {
+                "key": "field_66914e1b43e0c",
+                "label": "Menu Header",
+                "name": "menu_header",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Include a header above your menu items",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "nav_menu",
+                    "operator": "!=",
+                    "value": "location\/main-menu"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "field",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "taxonomy_668ed73bf2710",
+        "title": "Theme Locations",
+        "menu_order": 0,
+        "active": true,
+        "taxonomy": "theme-location",
+        "object_type": [
+            "jumbotron"
+        ],
+        "advanced_configuration": 1,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Theme Locations",
+            "singular_name": "Theme Location",
+            "menu_name": "Theme Locations",
+            "all_items": "All Theme Locations",
+            "edit_item": "Edit Theme Location",
+            "view_item": "View Theme Location",
+            "update_item": "Update Theme Location",
+            "add_new_item": "Add New Theme Location",
+            "new_item_name": "New Theme Location Name",
+            "parent_item": "Parent Theme Location",
+            "parent_item_colon": "Parent Theme Location:",
+            "search_items": "Search Theme Locations",
+            "most_used": "",
+            "not_found": "No theme locations found",
+            "no_terms": "No theme locations",
+            "name_field_description": "",
+            "slug_field_description": "",
+            "parent_field_description": "",
+            "desc_field_description": "",
+            "filter_by_item": "Filter by theme location",
+            "items_list_navigation": "Theme Locations list navigation",
+            "items_list": "Theme Locations list",
+            "back_to_items": "← Go to theme locations",
+            "item_link": "Theme Location Link",
+            "item_link_description": "A link to a theme location"
+        },
+        "description": "",
+        "capabilities": {
+            "manage_terms": "manage_categories",
+            "edit_terms": "manage_categories",
+            "delete_terms": "manage_categories",
+            "assign_terms": "edit_posts"
+        },
+        "public": 1,
+        "publicly_queryable": 1,
+        "hierarchical": 1,
+        "show_ui": 1,
+        "show_in_menu": 1,
+        "show_in_nav_menus": 1,
+        "show_in_rest": 1,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Terms_Controller",
+        "show_tagcloud": 1,
+        "show_in_quick_edit": 1,
+        "show_admin_column": 0,
+        "rewrite": {
+            "permalink_rewrite": "taxonomy_key",
+            "with_front": "1",
+            "rewrite_hierarchical": "0"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "default_term": {
+            "default_term_enabled": "0"
+        },
+        "sort": 0,
+        "meta_box": "default",
+        "meta_box_cb": "",
+        "meta_box_sanitize_cb": ""
+    },
+    {
+        "key": "post_type_66940b362872a",
+        "title": "Call To Action",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "cta",
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Call To Action",
+            "singular_name": "Call To Action",
+            "menu_name": "Call to Action",
+            "all_items": "All Call to Action",
+            "edit_item": "Edit Call to Action",
+            "view_item": "View Call to Action",
+            "view_items": "View Call to Action",
+            "add_new_item": "Add New Call to Action",
+            "add_new": "Add New Call to Action",
+            "new_item": "New Call to Action",
+            "parent_item_colon": "Parent Call to Action:",
+            "search_items": "Search Call to Action",
+            "not_found": "No call to action found",
+            "not_found_in_trash": "No call to action found in Trash",
+            "archives": "Call to Action Archives",
+            "attributes": "Call to Action Attributes",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insert into call to action",
+            "uploaded_to_this_item": "Uploaded to this call to action",
+            "filter_items_list": "Filter call to action list",
+            "filter_by_date": "Filter call to action by date",
+            "items_list_navigation": "Call to Action list navigation",
+            "items_list": "Call to Action list",
+            "item_published": "Call to Action published.",
+            "item_published_privately": "Call to Action published privately.",
+            "item_reverted_to_draft": "Call to Action reverted to draft.",
+            "item_scheduled": "Call to Action scheduled.",
+            "item_updated": "Call to Action updated.",
+            "item_link": "Call to Action Link",
+            "item_link_description": "A link to a call to action."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": false,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": {
+            "type": "dashicons",
+            "value": "dashicons-admin-post"
+        },
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail",
+            "custom-fields"
+        ],
+        "taxonomies": [
+            "theme-location"
+        ],
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
+    },
+    {
+        "key": "post_type_66926e10b537a",
+        "title": "Factoids",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "factoid",
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Factoids",
+            "singular_name": "Factoid",
+            "menu_name": "Factoids",
+            "all_items": "All Factoids",
+            "edit_item": "Edit Factoid",
+            "view_item": "View Factoid",
+            "view_items": "View Factoids",
+            "add_new_item": "Add New Factoid",
+            "add_new": "Add New Factoid",
+            "new_item": "New Factoid",
+            "parent_item_colon": "Parent Factoid:",
+            "search_items": "Search Factoids",
+            "not_found": "No factoids found",
+            "not_found_in_trash": "No factoids found in Trash",
+            "archives": "Factoid Archives",
+            "attributes": "Factoid Attributes",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insert into factoid",
+            "uploaded_to_this_item": "Uploaded to this factoid",
+            "filter_items_list": "Filter factoids list",
+            "filter_by_date": "Filter factoids by date",
+            "items_list_navigation": "Factoids list navigation",
+            "items_list": "Factoids list",
+            "item_published": "Factoid published.",
+            "item_published_privately": "Factoid published privately.",
+            "item_reverted_to_draft": "Factoid reverted to draft.",
+            "item_scheduled": "Factoid scheduled.",
+            "item_updated": "Factoid updated.",
+            "item_link": "Factoid Link",
+            "item_link_description": "A link to a factoid."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": true,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": {
+            "type": "dashicons",
+            "value": "dashicons-admin-post"
+        },
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail",
+            "custom-fields"
+        ],
+        "taxonomies": [
+            "theme-location"
+        ],
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
+    },
+    {
+        "key": "post_type_668e941d96338",
+        "title": "Jumbotrons",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "jumbotron",
+        "advanced_configuration": true,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Jumbotrons",
+            "singular_name": "Jumbotron",
+            "menu_name": "Jumbotrons",
+            "all_items": "All Jumbotrons",
+            "edit_item": "Edit Jumbotron",
+            "view_item": "View Jumbotron",
+            "view_items": "View Jumbotrons",
+            "add_new_item": "Add New Jumbotron",
+            "add_new": "Add New Jumbotron",
+            "new_item": "New Jumbotron",
+            "parent_item_colon": "Parent Jumbotron:",
+            "search_items": "Search Jumbotrons",
+            "not_found": "No jumbotrons found",
+            "not_found_in_trash": "No jumbotrons found in Trash",
+            "archives": "Jumbotron Archives",
+            "attributes": "Jumbotron Attributes",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insert into jumbotron",
+            "uploaded_to_this_item": "Uploaded to this jumbotron",
+            "filter_items_list": "Filter jumbotrons list",
+            "filter_by_date": "Filter jumbotrons by date",
+            "items_list_navigation": "Jumbotrons list navigation",
+            "items_list": "Jumbotrons list",
+            "item_published": "Jumbotron published.",
+            "item_published_privately": "Jumbotron published privately.",
+            "item_reverted_to_draft": "Jumbotron reverted to draft.",
+            "item_scheduled": "Jumbotron scheduled.",
+            "item_updated": "Jumbotron updated.",
+            "item_link": "Jumbotron Link",
+            "item_link_description": "A link to a jumbotron."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": true,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": {
+            "type": "dashicons",
+            "value": "dashicons-align-full-width"
+        },
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail",
+            "custom-fields"
+        ],
+        "taxonomies": "",
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
+    }
+]
