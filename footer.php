@@ -73,6 +73,7 @@
 </div>
 
 
+
 <?php  // delete this Block in production
     /** 
      * echo '<p style="background-color: red; color: yellow; font-size: 2rem; padding: 1rem;">';
