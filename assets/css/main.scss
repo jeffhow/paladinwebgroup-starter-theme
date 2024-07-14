@@ -1,3 +1,20 @@
 @import './scss/defaults.scss';
 @import './scss/base.scss';
-@import './scss/header.scss';
+@import './scss/utils/wp-admin.scss';
+@import './scss/utils/images.scss';
+@import './scss/utils/menus.scss';
+
+@import './scss/layout.scss';
+
+@import './scss/components/header.scss';
+@import './scss/components/footer.scss';
+@import './scss/components/basic-feed.scss';
+@import './scss/components/card-feed.scss';
+@import './scss/components/factoids.scss';
+@import './scss/components/search.scss';
+@import './scss/components/form-switch.scss';
+@import './scss/components/comments.scss';
+@import './scss/components/site-widgets.scss';
+@import './scss/components/jumbotron.scss';
+@import './scss/components/call-to-action.scss';
+@import './scss/components/buttons.scss';

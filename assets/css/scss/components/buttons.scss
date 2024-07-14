@@ -1,0 +1,16 @@
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: var(--bdrs);
+    border: 1px solid var(--color-fg-buttons);
+    background-color: var(--color-bg-buttons);
+    color: var(--color-fg-buttons);
+    transition: var(--trx);
+    &:hover, &:focus-visible {
+        text-decoration: none;
+        border-color: var(--color-bg-buttons);
+        background-color: var(--color-fg-buttons);
+        color: var(--color-bg-buttons);
+    }
+}

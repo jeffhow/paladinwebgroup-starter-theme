@@ -4,7 +4,7 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width">
-    <?php get_template_part('/assets/inc/google-fonts', 'google-fonts') ?>
+    <?php get_template_part('/template-parts/google-fonts', 'google-fonts') ?>
     <?php wp_head(); ?>
 </head>
 
@@ -26,8 +26,7 @@
                         }
 ?>
                 </div>
-                <div id="site-description" <?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>>
-                    <?php bloginfo( 'description' ); ?></div>
+                
             </div>
             <nav 
                 class="site-nav" 
@@ -49,11 +48,11 @@
                     <!-- search -->
                         <div id="search"><?php get_search_form(); ?></div>
                     <!-- Dk-mode -->
-                        <div class="form-check form-switch dark-mode-switch">
+                        <div class="form-check form-switch dark-mode-switch dk-mode-toggle">
                             <label class="form-check-label" aria-label="Toggle dark-mode">
                                 <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle" checked="">
+                                <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
                             </label>
-                            <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
                         </div>
                     </div>
                     <a href="#" class="skip-link screen-reader-text" id="close-menu-btn">Close Menu</a>

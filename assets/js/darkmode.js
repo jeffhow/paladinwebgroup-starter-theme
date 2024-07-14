@@ -1,24 +1,55 @@
 const dk_switch = document.querySelector("#dark-mode-toggle");
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+// checked for saved preference
+let theme = localStorage.getItem("theme");
 
-const currentTheme = localStorage.getItem("theme");
-if (currentTheme == "dark") {
-  document.body.classList.toggle("dark-theme");
-} else if (currentTheme == "light") {
-  document.body.classList.toggle("light-theme");
+function setMode() {
+  if (theme === 'dark') {
+    darkMode();
+  } else if (theme === 'light') {
+    lightMode();
+  } else {
+    // check system pref
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // dark mode
+      darkMode();
+    } else {
+      lightMode();
+    }
+  }
+  localStorage.setItem("theme", theme);
+}
+
+// check for changes to system pref
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+  theme = event.matches ? "dark" : "light";
+  localStorage.setItem("theme", theme);
+  setMode();
+});
+
+function darkMode() {
+  document.body.classList.remove("light-theme");
+  document.body.classList.add("dark-theme");
+  if (!dk_switch.checked) {
+    dk_switch.checked = true;
+  }
+}
+function lightMode() {
+  document.body.classList.remove("dark-theme");
+  document.body.classList.add("light-theme");
+  if (dk_switch.checked) {
+    dk_switch.checked = false;
+  }
 }
 
 dk_switch.addEventListener("click", function () {
-  if (prefersDarkScheme.matches) {
-    document.body.classList.toggle("light-theme");
-    var theme = document.body.classList.contains("light-theme")
-      ? "light"
-      : "dark";
+  if (this.checked) {
+    theme = 'dark';
+    darkMode();
   } else {
-    document.body.classList.toggle("dark-theme");
-    var theme = document.body.classList.contains("dark-theme")
-      ? "dark"
-      : "light";
+    theme = 'light';
+    lightMode();
   }
   localStorage.setItem("theme", theme);
 });
+
+setMode();

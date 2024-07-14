@@ -23,6 +23,7 @@ links.forEach(function(l){
 function viewDesktop() {
     menu.removeAttribute('aria-expanded');
     menu.classList.remove('open');
+    ham.classList.remove('open');
 }
 
 // add aria-expanded if needed

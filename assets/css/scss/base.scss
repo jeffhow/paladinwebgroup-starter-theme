@@ -1,15 +1,33 @@
 :root {
-    // common vars
+    // common theme vars
     --trx: all 0.3s ease;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09); // box shadow
     --hfont:"Noto Sans", sans-serif;
     --site-logo-uri: url('../images/deadline-comics.svg');
-    --site-logo-width: 153px;
-    --primary-color: red; // @todo: add this to dk-mode rules
-    --secondary-bkg-color: #ccc; //@todo: dk-mode
-    --links-color: #555; //@todo: darkmode
-    --wpadminbar: 0px;
+    --site-logo-width: 130px;
+
+    --bdrs: 0.5rem;
+    
+
+    // Colors @todo: add all to dk-mode rules
+   
+    --color-fg-default: #222;
+    --color-fg-primary: #f00;
+    --color-fg-secondary: #888;
+
+    --color-fg-links: #555; 
+    --color-fg-links-hover: #444;
+
+    --color-fg-buttons:#333;
+    --color-bg-buttons: #eee;
+
+    --color-bg-default: #fff;
+    --color-bg-nav: #aaa;
+    --color-bg-nav-secondary: #888;
+    --color-bg-primary: #BADA55;
+    --color-bg-secondary: #ccc;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -17,47 +35,51 @@ html {
     font-size: 16px;
 }
 
-// dealing with the wpadminbar height
-body:has(#wpadminbar) {
-    --wpadminbar: 32px
-}
-@media screen and (max-width: 782px) {
-    body:has(#wpadminbar) {
-        --wpadminbar: 46px;
-    }
-}
-
 // Dark Mode settings
-body {
-    --text-color: #222;
-    --bkg-color: #fff;
-    &.dark-theme {
-        --text-color: #eee;
-        --bkg-color: #121212;
-    }
+body.dark-theme {
+    --color-fg-default: #eee;
+    
+    --color-fg-primary: #f00;
+    --color-fg-secondary: #626262;
+    
+    --color-fg-links: #a0a0a0; 
+    --color-fg-links-hover: #808080;
+    
+    --color-fg-buttons:#bebdbd;
+    --color-bg-buttons: #232323;
+    
+    --color-bg-default: #121212;
+    --color-bg-nav: #333;
+    --color-bg-nav-secondary: #111;
+
+    --color-bg-primary: #2e3515;
+    --color-bg-secondary: #464545;
+
 }
 
 @media (prefers-color-scheme: dark) {
-  /* defaults to dark theme */
-  body {
-    --text-color: #eee;
-    --bkg-color: #121212;
-    &.light-theme {
-        --text-color: #222;
-        --bkg-color: #fff;
+    /* defaults to dark theme */
+    body {
+        --color-fg-default: #eee;
+        --color-bg-default: #121212;
+        &.light-theme {
+            --color-fg-default: #222;
+            --color-bg-default: #fff;
+        }
     }
 }
-}
 body {
-  background: var(--bkg-color);
+    background: var(--color-bg-default);
 }
 
-h1,h2,h3,h4,h5,h6,p {
-    color: var(--text-color);
+h1,h2,h3,h4,h5,h6,p, label, footer:not(a),
+.entry-date, .meta-sep, .says, .cat-links:not(a) {
+    color: var(--color-fg-default);
 }
 
 a {
     text-decoration: none;
+    color:var(--color-fg-links)
 }
 a:hover, a:active a:focus-visible {
     text-decoration: underline;
@@ -70,6 +92,13 @@ a:hover, a:active a:focus-visible {
 
 h1,h2,h3,h4,h5,h6,h1 *,h2 *,h3 *,h4 *,h5 *,h6 * {
     font-family: var(--hfont);
+    font-weight: 800;
+}
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.75rem;
 }
 
 p {
@@ -77,76 +106,44 @@ p {
     margin-bottom: 1.5rem;
 }
 
-button, input {
+button, 
+input[type="text"], 
+input[type="submit"], 
+input[type="search"], 
+textarea, input {
     padding: .5rem;
+    border-radius: .25rem;
 }
+
 label {
     display: inline-block;
 }
-// Macro-layout
-body > #wrapper {
-    min-height: calc(100vh - var(--wpadminbar));
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-}
 
-.site-main, .site-header, .site-footer, .site-widgets {
-    max-width: 1280px;
-    padding: 1rem;
-}
-
-// make those buttons visable in tabs
+// make buttons visable while tabbing for accessibility
 button:focus-visible {
-    outline: var(--text-color) auto 1px;
+    outline: var(--color-fg-default) auto 1px;
     outline: -webkit-focus-ring-color auto 1px;
     outline-offset: 1px;   
 }
 
-// Switches
-// Emmet:
-// div.formcheck.form-switch>label.form-check-label+input:checkbox.form-check-input
-.form-switch {
-    padding-left: 2.5rem;
+
+.entry-title {
+    margin-bottom: 1rem;
+    display: inline-block;
+    &:has(~ .entry-meta) {
+        margin-bottom: 0.5rem;
+    }
+    & + .post-edit-link {
+        display: inline-block;
+        margin-left: .5rem;
+        &:before{
+            content:'('
+        }
+        &:after {
+            content: ')'
+        }
+    }
 }
-.form-check {
-    display: block;
-    min-height: 1.5rem;
-    // padding-left: 1.5rem;
-    margin-bottom: .125rem; 
-}
-.form-check-input {
-    width: 1rem;
-    height: 1rem;
-    margin-top: .25rem;
-    vertical-align: top;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 1px solid rgba(0,0,0,.25);
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
-}
-.form-check .form-check-input {
-    float: left;
-    margin-left: -1.5rem;
-}
-.form-check-input:checked {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-.form-switch .form-check-input:checked {
-    background-position: right center;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-}
-.form-switch .form-check-input {
-    width: 2em;
-    margin-left: -2.5em;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
-    background-position: left center;
-    border-radius: 2em;
-    transition: background-position .15s ease-in-out;
+.entry-meta {
+    margin-bottom: 1rem;
 }
