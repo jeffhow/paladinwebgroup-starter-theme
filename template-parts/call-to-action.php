@@ -1,5 +1,5 @@
 <?php 
-    /** Custom Jumbotron query */
+    /** Custom CTA query */
 
     /** 
      * The ?? assigns a default value in the case of NULL or invalid key
@@ -7,25 +7,25 @@
      */ 
     $location = $args['location'] ?? 'default';
 
-    $jumbo_args = array (
+    $cta_args = array (
         'posts_per_page' => 1, // just the newest
-        'post_type' => 'jumbotron',
+        'post_type' => 'cta',
         'tax_query' => array(
             array(
                 'taxonomy' => 'theme-location',
                 'field' => 'slug',
                 'terms' => $location
-                // 'terms' => 'front-page'
             )
         )
     );
-    $jumbo_query = new WP_Query($jumbo_args);
-    if ( $jumbo_query->have_posts() ) : 
-        while ( $jumbo_query->have_posts() ) : 
-            $jumbo_query->the_post();      
+    $cta_query = new WP_Query($cta_args);
+    if ( $cta_query->have_posts() ) : 
+        while ( $cta_query->have_posts() ) : 
+            $cta_query->the_post();  
+
             $image = get_field('hero_image'); ?>
 
-            <div class="jumbotron <?php echo ($image) ? 'jumbotron-hero':''; ?>">
+            <div class="cta <?php echo ($image) ? 'cta-hero':''; ?>">
             
                 <?php 
 
@@ -64,7 +64,7 @@
                     $v_placement = strtolower(get_field('vertical_placement')); 
                     $h_placement = strtolower(get_field('horizontal_placement'));
                 ?>
-                <div class="jumbotron-statement 
+                <div class="cta-statement 
                     <?php echo esc_attr($v_placement) . ' ' . esc_attr($h_placement); ?>"
                     style="<?php 
                         echo esc_attr( $text_color ? "color: $text_color;" : "" ); 
@@ -72,12 +72,12 @@
                         ?>"
                 >
                         
-                    <p class="jumbotron-text"><?php the_field('jumbotron_header'); ?></p>
+                    <p class="cta-text"><?php the_field('header_text'); ?></p>
                     
                     <?php the_content(); ?>
 
                     <?php 
-                        $cta = get_field('call_to_action');
+                        $cta = get_field('call_to_action_link');
                         if( $cta ): 
 
                             $cta_url = $cta['url'];

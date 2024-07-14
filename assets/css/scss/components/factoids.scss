@@ -29,6 +29,10 @@
         padding: .5rem;
         border-radius: 5px;
         font-size: .75rem;
+        transition: var(--trx);
+        &:hover, &:focus-within {
+            background-color: white;
+        }
     }
     .large-text {
         display: block;

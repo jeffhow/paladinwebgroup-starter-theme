@@ -1,4 +1,4 @@
-.jumbotron {
+.cta {
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
@@ -19,14 +19,14 @@
     }
   }
 
-  &.jumbotron-hero {
+  &.cta-hero {
     position: relative;
     .hero-image {
       width: 100%;
       height: 60vh;
       object-fit: cover;
     }
-    .jumbotron-statement {
+    .cta-statement {
       text-align: center;
       width: calc(100% - 2rem);
       position: absolute;
@@ -38,24 +38,9 @@
       // default position
       left: 50%;
       top: 50%;
-
-      // v_position
-      &.top {
-        top: 25%;
-      }
-      &.middle {
-        top: 50%;
-      }
-      &.bottom {
-        top: 75%;
-      }
-      // h_position -> mobile all center
-      &.left, &.center, &.left { 
-        left: 50%;
-      }
       
 
-      .jumbotron-text {
+      .cta-text {
         font-size: 2rem;
         margin: 1rem 0;
       }
@@ -68,9 +53,9 @@
 }
 
 @media screen and (min-width: 782px) {
-  .jumbotron {
-    &.jumbotron-hero {
-      .jumbotron-statement {
+  .cta {
+    &.cta-hero {
+      .cta-statement {
         width: auto;
         min-width: calc(50% - 4rem);
         // h_position

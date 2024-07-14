@@ -774,6 +774,10 @@ body > #wrapper > #container {
   padding: 0.5rem;
   border-radius: 5px;
   font-size: 0.75rem;
+  transition: var(--trx);
+}
+.factoid .post-edit-link:hover, .factoid .post-edit-link:focus-within {
+  background-color: white;
 }
 .factoid .large-text {
   display: block;
@@ -1044,6 +1048,10 @@ body > #wrapper > #container {
   padding: 0.5rem;
   border-radius: 5px;
   font-size: 0.75rem;
+  transition: var(--trx);
+}
+.jumbotron .post-edit-link:hover, .jumbotron .post-edit-link:focus-within {
+  background-color: white;
 }
 .jumbotron.jumbotron-hero {
   position: relative;
@@ -1058,7 +1066,7 @@ body > #wrapper > #container {
   width: calc(100% - 2rem);
   position: absolute;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: var(--bdrs);
   transform: translate(-50%, -50%);
   left: 50%;
@@ -1080,6 +1088,9 @@ body > #wrapper > #container {
   font-size: 2rem;
   margin: 1rem 0;
 }
+.jumbotron.jumbotron-hero .jumbotron-statement p {
+  color: inherit;
+}
 
 @media screen and (min-width: 782px) {
   .jumbotron.jumbotron-hero .jumbotron-statement {
@@ -1090,6 +1101,65 @@ body > #wrapper > #container {
     left: 25%;
   }
   .jumbotron.jumbotron-hero .jumbotron-statement.right {
+    left: 75%;
+  }
+}
+.cta {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cta .post-edit-link {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  transition: var(--trx);
+}
+.cta .post-edit-link:hover, .cta .post-edit-link:focus-within {
+  background-color: white;
+}
+.cta.cta-hero {
+  position: relative;
+}
+.cta.cta-hero .hero-image {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+.cta.cta-hero .cta-statement {
+  text-align: center;
+  width: calc(100% - 2rem);
+  position: absolute;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--bdrs);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.cta.cta-hero .cta-statement .cta-text {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+.cta.cta-hero .cta-statement p {
+  color: inherit;
+}
+
+@media screen and (min-width: 782px) {
+  .cta.cta-hero .cta-statement {
+    width: auto;
+    min-width: calc(50% - 4rem);
+  }
+  .cta.cta-hero .cta-statement.left {
+    left: 25%;
+  }
+  .cta.cta-hero .cta-statement.right {
     left: 75%;
   }
 }

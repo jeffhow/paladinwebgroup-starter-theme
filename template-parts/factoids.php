@@ -40,8 +40,8 @@
                     style="<?php 
                         echo esc_attr( $text_color ? "color: $text_color; " : "" ); 
                         echo esc_attr( $background_color ? "background-color: $background_color; " : "" ); 
-                        ?>
-                    ">
+                        ?>"
+                >
                     <?php if ($is_icon): ?>
                         <div class="large-text">
                             <i class="<?php echo esc_html($icon); ?>"></i>

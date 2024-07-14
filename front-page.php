@@ -24,5 +24,11 @@
     ?>
 </section>
 
+<?php
+    get_template_part( 'template-parts/call-to-action', null,
+        array( 'location' => 'front-page')
+    );
+?>
+
 <?php get_template_part( 'nav', 'below' ); ?>
 <?php get_footer(); ?>
