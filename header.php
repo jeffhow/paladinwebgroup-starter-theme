@@ -4,7 +4,7 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width">
-    <?php get_template_part('/assets/inc/google-fonts', 'google-fonts') ?>
+    <?php get_template_part('/template-parts/google-fonts', 'google-fonts') ?>
     <?php wp_head(); ?>
 </head>
 
