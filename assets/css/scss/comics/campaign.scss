@@ -1,0 +1,31 @@
+:root {
+    --campaign-red: hsla(359, 93%, 29%, 1);
+    --campaign-black: hsla(0, 0%, 0%, 1);
+    --compaign-white: hsla(0, 0%, 100%, 1);
+    --comic-logo-uri: url('../images/comics/campaign.svg');
+    --comic-logo-width: 400px;
+}
+
+.single-campaign, .post-type-archive-campaign {
+    .comic-header {
+        text-align: center;
+        transition: var(--trx);
+    }   
+    .comic-masthead {
+        max-width: 650px;
+        height: auto;
+        width: 100%;
+        display: inline-block;
+    }
+    .comic-title {
+        font-size:3rem;
+        text-indent:100%;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 0;
+    }
+    .wp-post-image {
+        width: 100%;
+        height: auto;
+    }
+}

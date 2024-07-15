@@ -1180,4 +1180,34 @@ body > #wrapper > #container {
   color: var(--color-bg-buttons);
 }
 
+:root {
+  --campaign-red: hsla(359, 93%, 29%, 1);
+  --campaign-black: hsla(0, 0%, 0%, 1);
+  --compaign-white: hsla(0, 0%, 100%, 1);
+  --comic-logo-uri: url("../images/comics/campaign.svg");
+  --comic-logo-width: 400px;
+}
+
+.single-campaign .comic-header, .post-type-archive-campaign .comic-header {
+  text-align: center;
+  transition: var(--trx);
+}
+.single-campaign .comic-masthead, .post-type-archive-campaign .comic-masthead {
+  max-width: 650px;
+  height: auto;
+  width: 100%;
+  display: inline-block;
+}
+.single-campaign .comic-title, .post-type-archive-campaign .comic-title {
+  font-size: 3rem;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+}
+.single-campaign .wp-post-image, .post-type-archive-campaign .wp-post-image {
+  width: 100%;
+  height: auto;
+}
+
 /*# sourceMappingURL=main.css.map */
