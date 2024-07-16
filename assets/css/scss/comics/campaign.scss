@@ -24,8 +24,12 @@
         overflow: hidden;
         height: 0;
     }
-    .wp-post-image {
+}
+.single-campaign, .post-type-archive-campaign,
+.single-paledragon, .post-type-archive-paledragon {
+    .wp-post-image:not(.size-thumbnail) {
         width: 100%;
         height: auto;
     }
+
 }

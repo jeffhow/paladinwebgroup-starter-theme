@@ -1205,7 +1205,9 @@ body > #wrapper > #container {
   overflow: hidden;
   height: 0;
 }
-.single-campaign .wp-post-image, .post-type-archive-campaign .wp-post-image {
+
+.single-campaign .wp-post-image:not(.size-thumbnail), .post-type-archive-campaign .wp-post-image:not(.size-thumbnail),
+.single-paledragon .wp-post-image:not(.size-thumbnail), .post-type-archive-paledragon .wp-post-image:not(.size-thumbnail) {
   width: 100%;
   height: auto;
 }

@@ -276,7 +276,34 @@ function my_pre_get_posts( $query ) {
     return $query;
 
 }
-
 add_action('pre_get_posts', 'my_pre_get_posts');
 
+/**
+ * This is how to add ACF columns to the admin. Not sure it's needed yet.
+ */
+// // Add the custom columns to the Campaign post type:
+// add_filter( 'manage_campaign_posts_columns', 'set_custom_edit_campaign_columns' );
+// function set_custom_edit_campaign_columns($columns) {
+//     unset( $columns['campaign'] );
+//     $columns['episode'] = __( 'episode', 'paladinwebgroup' );
+
+//     return $columns;
+// }
+// // Add the data to the custom columns for the book post type:
+// add_action( 'manage_campaign_posts_custom_column' , 'custom_campaign_column', 10, 2 );
+// function custom_campaign_column( $column, $post_id ) {
+    
+//     switch ( $column ) {
+
+//         case 'episode' :
+//             $terms = get_field('episode', $post_id );
+            
+//             if ( is_string( $terms ) )
+//                 echo $terms;
+//             else
+//                 _e( 'Unable to get episode(s)', 'paladinwebgroup' );
+//             break;
+
+//     }
+// }
 ?>
