@@ -290,11 +290,7 @@ add_action('pre_get_posts', 'my_pre_get_posts');
  */
 add_filter('body_class', 'comics_body_class');
 function comics_body_class($classes) {
-    $post_type = get_post_type();
-    if (
-        $post_type == 'campaign' ||
-        $post_type == 'paledragon'
-    ) {
+    if ( is_comic() ) {
         $classes[] = get_post_type();
         $classes[] = 'comic';
         if ( is_archive() ) {
@@ -317,6 +313,83 @@ return array_merge( $sizes, array(
 'full-page' => __( 'Full Page' ),
 ) );
 }
+
+// add back to beginning and back to latest buttons on post_nav on comics
+add_filter( 'previous_post_link', function( $output, $format, $link, $post ) {
+
+    if (is_comic()) {
+        $args = array(
+            'numberposts' => 1,
+            'post_type' => get_post_type(),
+            'meta_query' => array(
+                array(
+                    'key'   => 'episode',
+                    'value' => '1',
+                )
+            )
+        );
+        $first_post = get_posts( $args );
+
+        if ($post) {
+    
+            $first_link = sprintf(
+                '<div class="first-post"><a href="%1$s" title="%2$s"><i class="fa-solid fa-backward"></i> First Episode</a></div>',
+                get_permalink( $first_post[0]->ID ),
+                get_the_title( $first_post[0]->ID )
+            );
+        } else { // if post is empty, were're on page 1 already
+            $output = sprintf(
+                '<div class="nav-previous"><a class="unclickable" title="%1$s" rel="prev"><span class="meta-nav"><i class="fa-solid fa-caret-left" aria-hidden="true"></i></span> %1$s</a></div>', get_the_title( $first_post[0]->ID )
+            );
+            $first_link = sprintf(
+                '<div class="first-post"><a class="unclickable" title="%1$s" rel="first"><i class="fa-solid fa-backward"></i> First Episode</a></div>',
+                get_the_title( $first_post[0]->ID )
+            );
+        }
+
+        echo $first_link . $output;
+    }
+}, 10, 4 );
+
+add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
+    if (is_comic()) {
+        $args = array(
+            'numberposts' => 1,
+            // 'orderby' => 'meta_value',
+            // 'meta_key' => 'episode',
+            'order' => 'DESC',
+            'post_type' => get_post_type() ,
+            'meta_query' => array(
+                array(
+                    'key'   => 'episode',
+                    // 'value' => 'yes',
+                )
+            )
+        );
+        //'numberposts=1&order=ASC'
+        $last_post = get_posts( $args );
+        if ($post) {
+            $last_link = sprintf(
+                '<div class="last-post"><a href="%1$s" title="%2$s">Last Episode <i class="fa-solid fa-forward"></i></a></div>',
+                get_permalink( $last_post[0]->ID ),
+                get_the_title( $last_post[0]->ID )
+            );
+        } else { // if $post is empty we're already on the last post
+            $output = sprintf(
+                '<div class="last-post"><a class="unclickable" title="%1$s">%1$s <i class="fa-solid fa-forward"></i></a></div>',
+                get_the_title( $last_post[0]->ID )
+            );
+            $last_link = sprintf(
+                '<div class="last-post"><a class="unclickable" title="%1$s">Last Episode <i class="fa-solid fa-forward"></i></a></div>',
+                get_the_title( $last_post[0]->ID )
+            );
+
+        }
+
+        echo $output . $last_link;
+    }
+}, 10, 4 );
+
 
 /**
  * This is how to add ACF columns to the admin. Not sure it's needed yet.
@@ -346,4 +419,14 @@ return array_merge( $sizes, array(
 
 //     }
 // }
+
+/**
+ * is_comic returns bool
+ * this helper function is used throughout this file
+ * Update this for every new comic
+ */
+function is_comic() {
+     return get_post_type() == 'campaign'|| get_post_type() == 'paledragon';
+}
+
 ?>

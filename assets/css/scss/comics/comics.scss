@@ -32,6 +32,14 @@
     .episode-title {
         margin: 1rem 0;
     }
+    .comic-nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        // .nav-links {
+        // }
+    }
 }
 
 .comic-feed {

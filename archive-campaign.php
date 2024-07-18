@@ -62,8 +62,12 @@ if ( $comic_query->have_posts() ) : ?>
             <aside class="comic-blog">
                 <?php the_content(); ?>
             </aside>
-
-            <?php get_template_part( 'nav', 'below-single' ); ?>
+            
+            <footer class="comic-footer">
+                <nav class="comic-nav">
+                    <?php get_template_part( 'nav', 'below-comic' ); ?>
+                </nav>
+            </footer>
 
         </section><!-- /.comic-page -->
 

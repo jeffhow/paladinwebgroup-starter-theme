@@ -1214,6 +1214,11 @@ body > #wrapper > #container {
 .comic .episode-title {
   margin: 1rem 0;
 }
+.comic .comic-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
 
 .comic-feed {
   margin-top: 2rem;
