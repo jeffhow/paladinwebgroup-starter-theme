@@ -36,25 +36,101 @@
         display: flex;
         justify-content: center;
         gap: 2rem;
+        margin-bottom: 1rem;
+        [class^="nav"] {
+            font-size: 1.75rem;
+            padding: 1rem;
+            border: 1px solid var(--color-secondary-comic);
+            border-radius: 50%;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);            
+            background: radial-gradient(circle at 100%, #ffffff 66%, #bfbfbf);
+            transition: var(--trx);
+            &:has(.unclickable) {
+                opacity: 0.5;
+            }
+            a {
+                transition: var(--trx);
+                color: var(--color-secondary-comic);
+                display: inline-block;
+            }
+            
+            &:hover, &:focus-visible {
+                box-shadow: 2px 4px 6px rgba(0, 0, 0, .8);
+                &:has(.unclickable) { // resets the effect
+                    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);            
+                }          
+                a:not(.unclickable) {
+                    transform: scale(1.1);
+                }
 
-        // .nav-links {
-        // }
+            }
+        }
+        .nav-first, .nav-prev {
+            i {
+                transform: translateX(-2px);
+            }
+        }
+        .nav-next, .nav-last {
+            i {
+                transform: translateX(2px);
+            }
+        }
+        .label {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            height: 0;
+            width: 0;
+        }
     }
+}
+@media screen and (min-width: 782px) {
+    .comic .comic-nav {
+        [class^="nav"] {
+            font-size: 1rem;
+            border-radius: var(--bdrs);
+            i {
+                transform: none;
+            }
+            &:hover, &:focus-visible {
+
+                a:not(.unclickable) {
+                    transform: none;
+                }
+    
+            }
+        }
+        .label {
+            display: inline;
+            height: auto;
+            width: auto;
+        }
+    } 
 }
 
 .comic-feed {
-    margin-top: 2rem;
     h2 {
         margin-bottom: 1rem;
     }
 }
 
 .comic-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: clamp(1rem, 2rem, 4rem);
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // grid-gap: clamp(1rem, 2rem, 4rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 
     article {
+        width: 100%;
+        flex: 1 1 350px;
+        min-width: 350px;
+        max-width: 500px;
+        display: inline-block;
+
         background-color: var(--color-bg-default);
         box-shadow: var(--bs);
         // padding: 1rem;

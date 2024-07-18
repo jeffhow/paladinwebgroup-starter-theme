@@ -515,6 +515,16 @@ body > #wrapper > #container {
   overflow: hidden;
 }
 
+@media screen and (min-width: 782px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  #branding {
+    margin-right: 1.5rem;
+  }
+}
 .site-nav {
   position: fixed;
   z-index: 1;
@@ -605,15 +615,6 @@ body > #wrapper > #container {
 }
 
 @media screen and (min-width: 782px) {
-  .site-header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-  }
-
-  #branding {
-    margin-right: 1.5rem;
-  }
-
   #close-menu-btn {
     display: none;
   }
@@ -1218,21 +1219,82 @@ body > #wrapper > #container {
   display: flex;
   justify-content: center;
   gap: 2rem;
+  margin-bottom: 1rem;
+}
+.comic .comic-nav [class^=nav] {
+  font-size: 1.75rem;
+  padding: 1rem;
+  border: 1px solid var(--color-secondary-comic);
+  border-radius: 50%;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(circle at 100%, #ffffff 66%, #bfbfbf);
+  transition: var(--trx);
+}
+.comic .comic-nav [class^=nav]:has(.unclickable) {
+  opacity: 0.5;
+}
+.comic .comic-nav [class^=nav] a {
+  transition: var(--trx);
+  color: var(--color-secondary-comic);
+  display: inline-block;
+}
+.comic .comic-nav [class^=nav]:hover, .comic .comic-nav [class^=nav]:focus-visible {
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.8);
+}
+.comic .comic-nav [class^=nav]:hover:has(.unclickable), .comic .comic-nav [class^=nav]:focus-visible:has(.unclickable) {
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.comic .comic-nav [class^=nav]:hover a:not(.unclickable), .comic .comic-nav [class^=nav]:focus-visible a:not(.unclickable) {
+  transform: scale(1.1);
+}
+.comic .comic-nav .nav-first i, .comic .comic-nav .nav-prev i {
+  transform: translateX(-2px);
+}
+.comic .comic-nav .nav-next i, .comic .comic-nav .nav-last i {
+  transform: translateX(2px);
+}
+.comic .comic-nav .label {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+  width: 0;
 }
 
-.comic-feed {
-  margin-top: 2rem;
+@media screen and (min-width: 782px) {
+  .comic .comic-nav [class^=nav] {
+    font-size: 1rem;
+    border-radius: var(--bdrs);
+  }
+  .comic .comic-nav [class^=nav] i {
+    transform: none;
+  }
+  .comic .comic-nav [class^=nav]:hover a:not(.unclickable), .comic .comic-nav [class^=nav]:focus-visible a:not(.unclickable) {
+    transform: none;
+  }
+  .comic .comic-nav .label {
+    display: inline;
+    height: auto;
+    width: auto;
+  }
 }
 .comic-feed h2 {
   margin-bottom: 1rem;
 }
 
 .comic-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 .comic-cards article {
+  width: 100%;
+  flex: 1 1 350px;
+  min-width: 350px;
+  max-width: 500px;
+  display: inline-block;
   background-color: var(--color-bg-default);
   box-shadow: var(--bs);
   border-radius: var(--bdrs);
