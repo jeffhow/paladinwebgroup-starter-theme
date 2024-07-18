@@ -7,7 +7,7 @@
      */ 
     $location = $args['location'] ?? 'default';
 
-    $jumbo_args = array (
+    $jumbo_args = array(
         'posts_per_page' => 1, // just the newest
         'post_type' => 'jumbotron',
         'tax_query' => array(
@@ -99,6 +99,6 @@
 
 <?php 
         endwhile; // jumbo_query
+        wp_reset_postdata();
     endif; // jumbo_query have_posts()
-    wp_reset_postdata();
 ?>

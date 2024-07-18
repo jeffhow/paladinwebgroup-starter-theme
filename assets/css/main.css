@@ -345,6 +345,7 @@ body.dark-theme {
   --color-bg-nav-secondary: #111;
   --color-bg-primary: #2e3515;
   --color-bg-secondary: #464545;
+  --bs: 0 12px 24px 0 rgba(255,255,255,0.09);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -735,7 +736,7 @@ body > #wrapper > #container {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2rem;
 }
-.card-feed .post {
+.card-feed article {
   background-color: var(--color-bg-default);
   box-shadow: var(--bs);
   padding: 1rem;
@@ -1181,35 +1182,83 @@ body > #wrapper > #container {
 }
 
 :root {
-  --campaign-red: hsla(359, 93%, 29%, 1);
-  --campaign-black: hsla(0, 0%, 0%, 1);
-  --compaign-white: hsla(0, 0%, 100%, 1);
-  --comic-logo-uri: url("../images/comics/campaign.svg");
-  --comic-logo-width: 400px;
+  --color-fg-comic: black;
+  --color-bg-comic: white;
+  --color-secondary-comic: #333;
 }
 
-.single-campaign .comic-header, .post-type-archive-campaign .comic-header {
+.comic .comic-header {
   text-align: center;
   transition: var(--trx);
 }
-.single-campaign .comic-masthead, .post-type-archive-campaign .comic-masthead {
+.comic .comic-masthead {
   max-width: 650px;
   height: auto;
   width: 100%;
   display: inline-block;
 }
-.single-campaign .comic-title, .post-type-archive-campaign .comic-title {
+.comic .comic-title {
   font-size: 3rem;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
   height: 0;
 }
-
-.single-campaign .wp-post-image:not(.size-thumbnail), .post-type-archive-campaign .wp-post-image:not(.size-thumbnail),
-.single-paledragon .wp-post-image:not(.size-thumbnail), .post-type-archive-paledragon .wp-post-image:not(.size-thumbnail) {
+.comic .comic-page-art {
   width: 100%;
   height: auto;
+  margin: auto;
+  box-shadow: var(--bs);
+  margin-bottom: 2rem;
+}
+.comic .episode-title {
+  margin: 1rem 0;
+}
+
+.comic-feed {
+  margin-top: 2rem;
+}
+.comic-feed h2 {
+  margin-bottom: 1rem;
+}
+
+.comic-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+.comic-cards article {
+  background-color: var(--color-bg-default);
+  box-shadow: var(--bs);
+  border-radius: var(--bdrs);
+  overflow: hidden;
+}
+.comic-cards article header {
+  background-color: var(--color-secondary-comic);
+  padding: 1rem;
+}
+.comic-cards article header * {
+  color: var(--color-bg-comic);
+}
+.comic-cards article header .entry-meta {
+  margin-bottom: 0;
+}
+.comic-cards article .entry-summary {
+  padding: 1rem;
+}
+.comic-cards article .entry-summary img {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.campaign {
+  --campaign-red: hsla(0, 100%, 19%,1);
+  --campaign-black: hsla(0, 0%, 0%, 1);
+  --campaign-white: hsla(0, 0%, 100%, 1);
+  --color-fg-comic: var(--campaign-black);
+  --color-bg-comic: var(--campaign-white);
+  --color-secondary-comic: var(--campaign-red);
 }
 
 /*# sourceMappingURL=main.css.map */

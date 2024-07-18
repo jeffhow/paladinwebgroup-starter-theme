@@ -99,6 +99,6 @@
 
 <?php 
         endwhile; // jumbo_query
+        wp_reset_postdata();
     endif; // jumbo_query have_posts()
-    wp_reset_postdata();
 ?>

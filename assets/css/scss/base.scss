@@ -55,6 +55,7 @@ body.dark-theme {
     --color-bg-primary: #2e3515;
     --color-bg-secondary: #464545;
 
+    --bs: 0 12px 24px 0 rgba(255,255,255,0.09);
 }
 
 @media (prefers-color-scheme: dark) {

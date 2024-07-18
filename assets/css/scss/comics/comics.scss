@@ -1,0 +1,80 @@
+:root {
+    --color-fg-comic: black;
+    --color-bg-comic: white;
+    --color-secondary-comic: #333;
+}
+
+.comic {
+    .comic-header {
+        text-align: center;
+        transition: var(--trx);
+    }   
+    .comic-masthead {
+        max-width: 650px;
+        height: auto;
+        width: 100%;
+        display: inline-block;
+    }
+    .comic-title {
+        font-size:3rem;
+        text-indent:100%;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 0;
+    }
+    .comic-page-art {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        box-shadow: (var(--bs));
+        margin-bottom: 2rem;
+    }
+    .episode-title {
+        margin: 1rem 0;
+    }
+}
+
+.comic-feed {
+    margin-top: 2rem;
+    h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+.comic-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: clamp(1rem, 2rem, 4rem);
+
+    article {
+        background-color: var(--color-bg-default);
+        box-shadow: var(--bs);
+        // padding: 1rem;
+        border-radius: var(--bdrs);
+        overflow: hidden;
+
+        header {
+            background-color: var(--color-secondary-comic);
+            padding: 1rem;
+            * {
+                color: var(--color-bg-comic);
+            }
+            .entry-meta {
+                margin-bottom: 0;
+            }
+
+        }
+        .entry-summary {
+            padding: 1rem;
+            img {
+                float: left;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.comic-single {
+
+}

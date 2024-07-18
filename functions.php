@@ -10,6 +10,10 @@ function paladinwebgroup_setup()
     add_theme_support('html5', array('search-form', 'navigation-widgets'));
     add_theme_support('appearance-tools');
     add_theme_support('woocommerce');
+
+    // full-page (max-width) image
+    add_image_size('full-page', 1280);
+
     global $content_width;
     if (!isset($content_width)) {
         $content_width = 1920;
@@ -33,6 +37,7 @@ function paladinwebgroup_enqueue()
     wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), NULL, true);
     wp_enqueue_script('unclickable', get_template_directory_uri() . '/assets/js/unclickable.js', array(), NULL, true);
 }
+
 add_action('wp_footer', 'paladinwebgroup_footer');
 function paladinwebgroup_footer()
 {
@@ -247,6 +252,9 @@ function my_wp_nav_menu_items( $items, $args ) {
 
 
 
+/**
+ * Custom comic taxonomy args
+ */
 function my_pre_get_posts( $query ) {
     
     // do not modify queries in the admin
@@ -256,27 +264,59 @@ function my_pre_get_posts( $query ) {
         
     }
     
-
-    // only modify queries for 'event' post type
+    // only modify queries for 'comics' post type
     if( 
         isset($query->query_vars['post_type']) && 
         (
             $query->query_vars['post_type'] == 'campaign' ||
             $query->query_vars['post_type'] == 'paledragon'
         )) {
-        $query->set('posts_per_page', 1);
+        // this overrides local custom query args
+        // $query->set('posts_per_page', 5);
         $query->set('orderby', 'meta_value');    
         $query->set('meta_key', 'episode');    
         $query->set('order', 'DESC'); 
         
     }
     
-
     // return
     return $query;
 
 }
 add_action('pre_get_posts', 'my_pre_get_posts');
+
+/**
+ * Set up custom comic body classes
+ */
+add_filter('body_class', 'comics_body_class');
+function comics_body_class($classes) {
+    $post_type = get_post_type();
+    if (
+        $post_type == 'campaign' ||
+        $post_type == 'paledragon'
+    ) {
+        $classes[] = get_post_type();
+        $classes[] = 'comic';
+        if ( is_archive() ) {
+            $classes[] = 'comic-feed';
+        } else {
+            $classes[] = 'comic-single';
+        }
+    }
+    
+    return $classes;
+}
+
+/**
+ * Register full-page image size in the admin menu
+ */
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+
+function my_custom_sizes( $sizes ) {
+return array_merge( $sizes, array(
+'full-page' => __( 'Full Page' ),
+) );
+}
 
 /**
  * This is how to add ACF columns to the admin. Not sure it's needed yet.
