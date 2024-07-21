@@ -16,7 +16,7 @@
 
 $comic_args = array(
     'posts_per_page' => 1, // latest
-    'post_type' => 'campaign',
+    'post_type' => get_post_type(),
 );
 // echo print_r($comic_args);
 $comic_query = new WP_Query($comic_args);
@@ -44,15 +44,18 @@ if ( $comic_query->have_posts() ) : ?>
                 // build srcset
                 $srcset = wp_get_attachment_image_srcset( $image['id'], array( 'medium', 'medium_large', 'large', 'full-page' ) );
             ?>
+            <section class="page-art">
                 <img 
-                    width="<?php echo $width; ?>"
-                    height="<?php echo esc_attr($height); ?>"
-                    srcset="<?php echo esc_attr($srcset); ?>"
-                    src="<?php echo esc_url($url); ?>" 
-                    alt="<?php echo esc_attr($alt); ?>" 
-                    title="<?php echo esc_attr($title); ?>" 
-                    class="fluid comic-page-art"  
+                width="<?php echo $width; ?>"
+                height="<?php echo esc_attr($height); ?>"
+                srcset="<?php echo esc_attr($srcset); ?>"
+                src="<?php echo esc_url($url); ?>" 
+                alt="<?php echo esc_attr($alt); ?>" 
+                title="<?php echo esc_attr($title); ?>" 
+                class="fluid comic-page-art"  
                 />
+            </section>
+
             <?php endif; ?>
 
             <aside class="full-script">
@@ -69,14 +72,53 @@ if ( $comic_query->have_posts() ) : ?>
                 </nav>
             </footer>
 
-        </section><!-- /.comic-page -->
-
-    <?php endwhile; ?>
             
+        <?php endwhile; ?>
+            
+    <?php 
+wp_reset_postdata();
+endif; 
+?>
+
+<?php // Ad space
+$promo_args = array(
+    'posts_per_page' => 3, 
+    'post_type' => 'promo',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'theme_location',
+            'field' => 'slug',
+            'terms' => array('campaign', 'comics'),
+            // don't include all books that are children
+            'include_children' => false 
+        ),
+    )
+);
+/**
+ * @todo: 
+ * 4. build the sidebar
+ * 5. style the sidebar
+ */ 
+$promo_query = new WP_Query($promo_args);
+if ( $promo_query->have_posts() ) : ?>
+    <aside class="promo-space">
+
+        <?php while ( $promo_query->have_posts() ) : 
+            $promo_query->the_post(); 
+        ?>
+
+            <?php the_content(); ?>
+
+        <?php endwhile; ?>
+            
+    </aside>
 <?php 
     wp_reset_postdata();
 endif; 
 ?>
+
+</section><!-- /.comic-page -->
+
 
 <?php if ( have_posts() ) : // recent posts ?>
     <section class="comic-feed">

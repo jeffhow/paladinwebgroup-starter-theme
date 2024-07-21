@@ -6,7 +6,9 @@
 body:has(#wpadminbar) {
     --wpadminbar: 32px
 }
-
+#wpadminbar {
+    z-index: 90000;
+}
 @media screen and (max-width: 782px) {
     body:has(#wpadminbar) {
         --wpadminbar: 46px;

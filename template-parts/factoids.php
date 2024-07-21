@@ -13,7 +13,7 @@
         'post_type' => 'factoid',
         'tax_query' => array(
             array(
-                'taxonomy' => 'theme-location',
+                'taxonomy' => 'theme_location',
                 'field' => 'slug',
                 'terms' => $location
                 // 'terms' => 'front-page'

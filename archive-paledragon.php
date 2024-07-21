@@ -16,7 +16,7 @@
 
 $comic_args = array(
     'posts_per_page' => 1, // latest
-    'post_type' => 'paledragon',
+    'post_type' => get_post_type(),
 );
 // echo print_r($comic_args);
 $comic_query = new WP_Query($comic_args);

@@ -2,13 +2,13 @@
 
 <?php
     get_template_part( 'template-parts/jumbotron', null,
-        array( 'location' => 'home')
+        array( 'location' => 'news')
     );
 ?>
 
 <?php
     get_template_part( 'template-parts/factoids', null,
-        array( 'location' => 'home')
+        array( 'location' => 'news')
     );
 ?>
 

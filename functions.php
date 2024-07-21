@@ -265,18 +265,12 @@ function my_pre_get_posts( $query ) {
     }
     
     // only modify queries for 'comics' post type
-    if( 
-        isset($query->query_vars['post_type']) && 
-        (
-            $query->query_vars['post_type'] == 'campaign' ||
-            $query->query_vars['post_type'] == 'paledragon'
-        )) {
+    if( is_comic($query)) {
         // this overrides local custom query args
         // $query->set('posts_per_page', 5);
         $query->set('orderby', 'meta_value');    
         $query->set('meta_key', 'episode');    
         $query->set('order', 'DESC'); 
-        
     }
     
     // return
@@ -313,7 +307,10 @@ return array_merge( $sizes, array(
 'full-page' => __( 'Full Page' ),
 ) );
 }
-
+/**
+ * prev_post_link and next_post_link
+ * 
+ */
 // add back to beginning and back to latest buttons on post_nav on comics
 add_filter( 'previous_post_link', function( $output, $format, $link, $post ) {
 
@@ -333,7 +330,7 @@ add_filter( 'previous_post_link', function( $output, $format, $link, $post ) {
         if ($post) {
     
             $output = sprintf(
-                '<div class="nav-prev"><a href="%1$s" title="%2$s"><i class="fa-solid fa-backward"></i><span class="label"> %2$s</span></a></div>',
+                '<div class="nav-prev"><a href="%1$s" title="%2$s"><i class="fa-solid fa-caret-left"></i><span class="label"> %2$s</span></a></div>',
                 get_permalink( $first_post[0]->ID ),
                 get_the_title( $first_post[0]->ID )
             );
@@ -375,7 +372,7 @@ add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
         $last_post = get_posts( $args );
         if ($post) {
             $output = sprintf(
-                '<div class="nav-next"><a href="%1$s" title="%2$s"><span class="label">%2$s </span><i class="fa-solid fa-forward"></i></a></div>',
+                '<div class="nav-next"><a href="%1$s" title="%2$s"><span class="label">%2$s </span><i class="fa-solid fa-caret-right"></i></a></div>',
                 get_permalink( $post->ID ),
                 get_the_title( $post->ID )
             );
@@ -386,7 +383,7 @@ add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
             );
         } else { // if $post is empty we're already on the last post
             $output = sprintf(
-                '<div class="nav-next"><a class="unclickable" title="%1$s"><span class="label">%1$s </span><i class="fa-solid fa-forward"></i></a></div>',
+                '<div class="nav-next"><a class="unclickable" title="%1$s"><span class="label">%1$s </span><i class="fa-solid fa-caret-right"></i></a></div>',
                 get_the_title( $last_post[0]->ID )
             );
             $last_link = sprintf(
@@ -435,8 +432,14 @@ add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
  * this helper function is used throughout this file
  * Update this for every new comic
  */
-function is_comic() {
-     return get_post_type() == 'campaign'|| get_post_type() == 'paledragon';
+function is_comic($query=[]) {
+    if( isset($query->query_vars['post_type']) ) {
+        return (
+            $query->query_vars['post_type'] == 'campaign' ||
+            $query->query_vars['post_type'] == 'paledragon'
+        );
+    }
+    return get_post_type() == 'campaign' || get_post_type() == 'paledragon';
 }
 
 ?>

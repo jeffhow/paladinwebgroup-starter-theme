@@ -12,7 +12,7 @@
     // Colors @todo: add all to dk-mode rules
    
     --color-fg-default: #222;
-    --color-fg-primary: #f00;
+    --color-fg-primary: #b30000;
     --color-fg-secondary: #888;
 
     --color-fg-links: #555; 
@@ -22,10 +22,12 @@
     --color-bg-buttons: #eee;
 
     --color-bg-default: #fff;
-    --color-bg-nav: #aaa;
-    --color-bg-nav-secondary: #888;
+    --color-bg-nav: rgba(255,255,255, 1);
+    --color-bg-nav-secondary: rgba(0,0,0,0.8);;
+
     --color-bg-primary: #BADA55;
     --color-bg-secondary: #ccc;
+    --color-bg-toggle: #e5e0e0;
 }
 
 * {
@@ -39,7 +41,7 @@ html {
 body.dark-theme {
     --color-fg-default: #eee;
     
-    --color-fg-primary: #f00;
+    --color-fg-primary: rgb(254, 106, 106);
     --color-fg-secondary: #626262;
     
     --color-fg-links: #a0a0a0; 
@@ -49,8 +51,9 @@ body.dark-theme {
     --color-bg-buttons: #232323;
     
     --color-bg-default: #121212;
-    --color-bg-nav: #333;
-    --color-bg-nav-secondary: #111;
+    --color-bg-nav: rgba(0,0,0, 1);
+    --color-bg-nav-secondary: rgba(0,0,0,0.8);
+    --color-bg-toggle: #262525;
 
     --color-bg-primary: #2e3515;
     --color-bg-secondary: #464545;

@@ -33,7 +33,7 @@
                 id="menu" 
                 role="navigation" 
                 itemscope itemtype="https://schema.org/SiteNavigationElement"
-                aria-expanded="false">
+                aria-expanded="false"><!-- menu -->
                 
                 <div class="nav-container">
                     <!-- nav -->
@@ -48,7 +48,7 @@
                     <!-- search -->
                         <div id="search"><?php get_search_form(); ?></div>
                     <!-- Dk-mode -->
-                        <div class="form-check form-switch dark-mode-switch dk-mode-toggle">
+                    <div class="form-check form-switch dark-mode-switch dk-mode-toggle">
                             <label class="form-check-label" aria-label="Toggle dark-mode">
                                 <input class="form-check-input" type="checkbox" role="switch" id="dark-mode-toggle" checked="">
                                 <i class="fa-sharp fa-solid fa-eclipse" aria-hidden="true"></i>
@@ -57,7 +57,8 @@
                     </div>
                     <a href="#" class="skip-link screen-reader-text" id="close-menu-btn">Close Menu</a>
                 </nav>
-            <button class="nav-toggle" 
+                <!-- menu -->
+            <button class="nav-toggle " 
                     tabindex="3"
                     aria-label="Navigation menu" 
                     aria-haspopup="true" 
