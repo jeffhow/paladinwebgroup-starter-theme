@@ -96,8 +96,15 @@ $promo_args = array(
 );
 /**
  * @todo: 
- * 4. build the sidebar
- * 5. style the sidebar
+ * 4. build the sidebar 
+ *  - H image
+ *  - V image
+ *  - Ad Description (for aria?)
+ *  - CTA link (for the image)
+ *  - hide the editor
+ *  - PHP elements <-- Here
+ * 
+ * 5. style the sidebar 
  */ 
 $promo_query = new WP_Query($promo_args);
 if ( $promo_query->have_posts() ) : ?>
@@ -105,10 +112,14 @@ if ( $promo_query->have_posts() ) : ?>
 
         <?php while ( $promo_query->have_posts() ) : 
             $promo_query->the_post(); 
+            $h_image = get_field('horizontal_image');
+            $v_image = get_field('vertical_image');
         ?>
-
-            <?php the_content(); ?>
-
+            <?php if ($v_image && $h_image): ?>
+            <?php else: ?>
+                <!-- // see jumbo cta -->
+                <a href=""><?php the_field('description'); ?></a>
+            <?php endif; ?>
         <?php endwhile; ?>
             
     </aside>
