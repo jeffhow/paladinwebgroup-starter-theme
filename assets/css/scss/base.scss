@@ -81,6 +81,12 @@ h1,h2,h3,h4,h5,h6,p, label, footer:not(a),
     color: var(--color-fg-default);
 }
 
+article .entry-content {
+    h1,h2,h3,h4,h5,h6 {
+        margin-bottom: 1rem;
+    }
+}
+
 a {
     text-decoration: none;
     color:var(--color-fg-links)
@@ -150,4 +156,7 @@ button:focus-visible {
 }
 .entry-meta {
     margin-bottom: 1rem;
+}
+.wp-block-latest-comments {
+    color: var(--color-fg-default);
 }

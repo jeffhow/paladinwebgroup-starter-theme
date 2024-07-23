@@ -370,6 +370,10 @@ h1, h2, h3, h4, h5, h6, p, label, footer:not(a),
   color: var(--color-fg-default);
 }
 
+article .entry-content h1, article .entry-content h2, article .entry-content h3, article .entry-content h4, article .entry-content h5, article .entry-content h6 {
+  margin-bottom: 1rem;
+}
+
 a {
   text-decoration: none;
   color: var(--color-fg-links);
@@ -440,6 +444,10 @@ button:focus-visible {
 
 .entry-meta {
   margin-bottom: 1rem;
+}
+
+.wp-block-latest-comments {
+  color: var(--color-fg-default);
 }
 
 :root {
@@ -686,7 +694,7 @@ body > #wrapper > #container {
   }
   .site-nav .nav-container .menu, .site-nav[aria-expanded] .nav-container .menu {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
   }
   .site-nav .nav-container div, .site-nav .nav-container li, .site-nav[aria-expanded] .nav-container div, .site-nav[aria-expanded] .nav-container li {
     margin-bottom: 0;
@@ -1241,6 +1249,31 @@ body > #wrapper > #container {
   border-color: var(--color-bg-buttons);
   background-color: var(--color-fg-buttons);
   color: var(--color-bg-buttons);
+}
+
+form[class^=wpcf7] {
+  max-width: 600px;
+  background-color: rgba(120, 120, 120, 0.5);
+  padding: 2rem;
+  box-shadow: var(--bs);
+  border-radius: var(--bdrs);
+}
+form[class^=wpcf7] label {
+  display: block;
+}
+form[class^=wpcf7] input, form[class^=wpcf7] textarea {
+  width: 100%;
+  border: none;
+}
+form[class^=wpcf7] span[class*=not-valid] {
+  color: var(--color-fg-default);
+  border-left: 5px solid red;
+  display: inline-block;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+form[class^=wpcf7] [class*=response-output] {
+  color: var(--color-fg-default);
 }
 
 :root {
