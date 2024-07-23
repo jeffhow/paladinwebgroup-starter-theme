@@ -38,6 +38,7 @@
         justify-content: start;
         flex-direction: column;
         margin-top: 2rem;
+        gap: 1rem;
         a {
             opacity: 0.8;
             transition: var(--trx);
@@ -129,7 +130,7 @@
         .comic-page {
             display: grid;
             grid-template-columns: 1fr ;
-            grid-template-rows: repat(auto-fill, auto);
+            grid-template-rows: 1fr;
             gap: 1rem;
             
             &:has(.updates) {
@@ -157,10 +158,11 @@
                 grid-area: 2 /2 /3 /3;
                 min-width: 200px;
                 max-width: 325px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: space-between;
                 margin-top: 0;
+                margin-bottom: 0;
                 a {
                     margin-bottom: 0;
                 }

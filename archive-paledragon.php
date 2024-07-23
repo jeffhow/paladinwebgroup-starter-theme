@@ -68,14 +68,17 @@ if ( $comic_query->have_posts() ) : ?>
                 </nav>
             </footer>
 
-        </section><!-- /.comic-page -->
-
-    <?php endwhile; ?>
             
-<?php 
+            <?php endwhile; ?>
+            
+            <?php 
     wp_reset_postdata();
 endif; 
 ?>
+
+<?php get_template_part( 'template-parts/promos'); ?>
+
+</section><!-- /.comic-page -->
 
 <?php if ( have_posts() ) : // recent posts ?>
     <section class="comic-feed">

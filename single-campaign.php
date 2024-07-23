@@ -47,7 +47,11 @@
                 </nav>
             </footer>
 
-        </section><!-- /.comic-page -->
+<?php endwhile; endif; ?>
+
+<?php get_template_part( 'template-parts/promos'); ?>
+
+</section><!-- /.comic-page -->
 
 
 <?php 
@@ -55,6 +59,5 @@
         comments_template( '', true );
     } 
 ?>
-<?php endwhile; endif; ?>
 
 <?php get_footer(); ?>
