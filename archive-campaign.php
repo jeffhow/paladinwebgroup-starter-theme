@@ -94,18 +94,7 @@ $promo_args = array(
         ),
     )
 );
-/**
- * @todo: 
- * 4. build the sidebar 
- *  - H image
- *  - V image
- *  - Ad Description (for aria?)
- *  - CTA link (for the image)
- *  - hide the editor
- *  - PHP elements <-- Here
- * 
- * 5. style the sidebar 
- */ 
+
 $promo_query = new WP_Query($promo_args);
 if ( $promo_query->have_posts() ) : ?>
     <aside class="updates">
