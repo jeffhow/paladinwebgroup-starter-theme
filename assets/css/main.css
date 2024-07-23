@@ -1113,7 +1113,7 @@ body > #wrapper > #container {
   font-size: 0.75rem;
   transition: var(--trx);
 }
-.jumbotron .post-edit-link:hover, .jumbotron .post-edit-link:focus-within {
+.jumbotron .post-edit-link:hover, .jumbotron .post-edit-link:focus-visible {
   background-color: white;
 }
 .jumbotron.jumbotron-hero {
@@ -1272,14 +1272,40 @@ body > #wrapper > #container {
   margin: auto;
   box-shadow: var(--bs);
 }
-.comic .page-art, .comic .promo-space {
+.comic .page-art, .comic .updates {
   margin-bottom: 2rem;
 }
-.comic .promo-space {
+.comic .updates {
   display: flex;
   align-items: center;
   justify-content: start;
   flex-direction: column;
+  margin-top: 2rem;
+}
+.comic .updates a {
+  opacity: 0.8;
+  transition: var(--trx);
+  margin-bottom: 0.5rem;
+}
+.comic .updates a:hover, .comic .updates a:focus-visible {
+  opacity: 1;
+}
+.comic .updates section {
+  position: relative;
+}
+.comic .updates section .post-edit-link {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  transition: var(--trx);
+}
+.comic .updates section .post-edit-link:hover, .comic .updates section .post-edit-link:focus-visible {
+  background-color: #fff;
 }
 .comic .episode-title {
   margin: 1rem 0;
@@ -1337,9 +1363,12 @@ body > #wrapper > #container {
 @media screen and (min-width: 782px) {
   .comic .comic-page {
     display: grid;
-    grid-template-columns: 1fr 25%;
+    grid-template-columns: 1fr;
     grid-template-rows: repat(auto-fill, auto);
     gap: 1rem;
+  }
+  .comic .comic-page:has(.updates) {
+    grid-template-columns: 1fr 25%;
   }
   .comic .comic-page .episode-title {
     grid-area: 1/1/2/3;
@@ -1356,11 +1385,17 @@ body > #wrapper > #container {
   .comic .comic-page .comic-footer {
     grid-area: 5/1/6/3;
   }
-  .comic .comic-page .promo-space {
+  .comic .comic-page .updates {
     grid-area: 2/2/3/3;
     min-width: 200px;
-    max-width: 300px;
-    border: 1px solid red;
+    max-width: 325px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+  .comic .comic-page .updates a {
+    margin-bottom: 0;
   }
   .comic .comic-nav [class^=nav] {
     font-size: 1rem;

@@ -29,14 +29,40 @@
         box-shadow: (var(--bs));
     }
     
-    .page-art, .promo-space {
+    .page-art, .updates {
         margin-bottom: 2rem;
     }
-    .promo-space {
+    .updates {
         display: flex;
         align-items: center;
         justify-content: start;
         flex-direction: column;
+        margin-top: 2rem;
+        a {
+            opacity: 0.8;
+            transition: var(--trx);
+            margin-bottom: .5rem;
+            &:hover, &:focus-visible {
+                opacity: 1;
+            }
+        }
+        section {
+            position: relative;
+            .post-edit-link {
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+                background-color: rgba(255, 255, 255, 0.8);
+                color: black;
+                padding: 0.5rem;
+                border-radius: 5px;
+                font-size: 0.75rem;
+                transition: var(--trx);
+                &:hover, &:focus-visible {
+                    background-color: #fff;
+                }   
+            }
+        }
     }
     .episode-title {
         margin: 1rem 0;
@@ -102,9 +128,13 @@
     .comic {
         .comic-page {
             display: grid;
-            grid-template-columns: 1fr 25%;
+            grid-template-columns: 1fr ;
             grid-template-rows: repat(auto-fill, auto);
             gap: 1rem;
+            
+            &:has(.updates) {
+                grid-template-columns: 1fr 25%;
+            }
 
             .episode-title {
                 //         RS/CS/RE/CE
@@ -123,11 +153,18 @@
             .comic-footer {
                 grid-area: 5 /1 /6 /3;
             }
-            .promo-space {
+            .updates {
                 grid-area: 2 /2 /3 /3;
                 min-width: 200px;
-                max-width: 300px;
-                border: 1px solid red;
+                max-width: 325px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-top: 0;
+                a {
+                    margin-bottom: 0;
+                }
+                // border: 1px solid red;
             }
         }
 

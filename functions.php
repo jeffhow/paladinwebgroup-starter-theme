@@ -14,6 +14,10 @@ function paladinwebgroup_setup()
     // full-page (max-width) image
     add_image_size('full-page', 1280);
 
+    // promo images
+    add_image_size('v-promo', 325);
+    add_image_size('h-promo', 782);
+
     global $content_width;
     if (!isset($content_width)) {
         $content_width = 1920;
@@ -331,8 +335,8 @@ add_filter( 'previous_post_link', function( $output, $format, $link, $post ) {
     
             $output = sprintf(
                 '<div class="nav-prev"><a href="%1$s" title="%2$s"><i class="fa-solid fa-caret-left"></i><span class="label"> %2$s</span></a></div>',
-                get_permalink( $first_post[0]->ID ),
-                get_the_title( $first_post[0]->ID )
+                get_permalink(  $post->ID ),
+                get_the_title(  $post->ID )
             );
             $first_link = sprintf(
                 '<div class="nav-first"><a href="%1$s" title="%2$s"><i class="fa-solid fa-backward"></i><span class="label"> First Episode</span></a></div>',
@@ -397,35 +401,6 @@ add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
     }
 }, 10, 4 );
 
-
-/**
- * This is how to add ACF columns to the admin. Not sure it's needed yet.
- */
-// // Add the custom columns to the Campaign post type:
-// add_filter( 'manage_campaign_posts_columns', 'set_custom_edit_campaign_columns' );
-// function set_custom_edit_campaign_columns($columns) {
-//     unset( $columns['campaign'] );
-//     $columns['episode'] = __( 'episode', 'paladinwebgroup' );
-
-//     return $columns;
-// }
-// // Add the data to the custom columns for the book post type:
-// add_action( 'manage_campaign_posts_custom_column' , 'custom_campaign_column', 10, 2 );
-// function custom_campaign_column( $column, $post_id ) {
-    
-//     switch ( $column ) {
-
-//         case 'episode' :
-//             $terms = get_field('episode', $post_id );
-            
-//             if ( is_string( $terms ) )
-//                 echo $terms;
-//             else
-//                 _e( 'Unable to get episode(s)', 'paladinwebgroup' );
-//             break;
-
-//     }
-// }
 
 /**
  * is_comic returns bool

@@ -13,7 +13,6 @@
 
 /** Custom Comic Query */
 
-
 $comic_args = array(
     'posts_per_page' => 1, // latest
     'post_type' => get_post_type(),

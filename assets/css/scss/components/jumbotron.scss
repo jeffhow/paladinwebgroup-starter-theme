@@ -14,7 +14,7 @@
     border-radius: 5px;
     font-size: .75rem;
     transition: var(--trx);
-    &:hover, &:focus-within {
+    &:hover, &:focus-visible {
       background-color: white;
     }
   }
