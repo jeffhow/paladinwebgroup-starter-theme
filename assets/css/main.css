@@ -1244,7 +1244,7 @@ body > #wrapper > #container {
     left: 75%;
   }
 }
-.btn {
+a.btn, .btn > a {
   display: inline-block;
   text-align: center;
   padding: 1rem 1.5rem;
@@ -1254,7 +1254,7 @@ body > #wrapper > #container {
   color: var(--color-fg-buttons);
   transition: var(--trx);
 }
-.btn:hover, .btn:focus-visible {
+a.btn:hover, a.btn:focus-visible, .btn > a:hover, .btn > a:focus-visible {
   text-decoration: none;
   border-color: var(--color-bg-buttons);
   background-color: var(--color-fg-buttons);
