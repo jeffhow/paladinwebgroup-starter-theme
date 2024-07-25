@@ -5,7 +5,9 @@
     $image = get_field('page_art'); 
 ?>
 <section class="comic-page">
-            <h2 class="episode-title">Episode <?php the_field('episode');?>: <?php the_field('page_title'); ?></h2>
+            <h2 class="episode-title">Episode <?php the_field('episode');?>: <?php the_field('page_title'); ?>
+                <small class="comic-edit"><?php edit_post_link('(Edit Page)'); ?></small>
+            </h2>
 
             <?php if ($image) : 
                 // Image variables.

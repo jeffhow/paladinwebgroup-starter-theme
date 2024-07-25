@@ -5,6 +5,10 @@
 }
 
 .comic {
+    .comic-edit .post-edit-link {
+        font-weight: normal;
+        font-size: 1rem;
+    }
     .comic-header {
         text-align: center;
         transition: var(--trx);
