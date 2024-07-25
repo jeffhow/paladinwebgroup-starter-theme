@@ -41,9 +41,9 @@ function paladinwebgroup_enqueue()
     wp_enqueue_style('paladinwebgroup-styles', get_stylesheet_uri(), array(), THEME_VERSION, 'all');
     wp_enqueue_style('paladinwebgroup-main-styles', get_template_directory_uri() . '/assets/css/main.css', array('paladinwebgroup-styles'), THEME_VERSION, 'all');
     wp_enqueue_script('jquery');
-    wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), NULL, true);
-    wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), NULL, true);
-    wp_enqueue_script('unclickable', get_template_directory_uri() . '/assets/js/unclickable.js', array(), NULL, true);
+    wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), THEME_VERSION, true);
+    wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), THEME_VERSION, true);
+    wp_enqueue_script('unclickable', get_template_directory_uri() . '/assets/js/unclickable.js', array(), THEME_VERSION, true);
 }
 
 add_action('wp_footer', 'paladinwebgroup_footer');
