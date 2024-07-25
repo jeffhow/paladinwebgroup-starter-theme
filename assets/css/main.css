@@ -365,6 +365,14 @@ body {
   background: var(--color-bg-default);
 }
 
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
 h1, h2, h3, h4, h5, h6, p, label, footer:not(a),
 .entry-date, .meta-sep, .says, .cat-links:not(a) {
   color: var(--color-fg-default);
