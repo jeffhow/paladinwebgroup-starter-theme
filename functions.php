@@ -1,4 +1,8 @@
 <?php
+
+$theme = wp_get_theme();
+define('THEME_VERSION', $theme->Version); // gets version written in your style.css
+
 add_action('after_setup_theme', 'paladinwebgroup_setup');
 function paladinwebgroup_setup()
 {
@@ -34,8 +38,8 @@ function paladinwebgroup_setup()
 add_action('wp_enqueue_scripts', 'paladinwebgroup_enqueue');
 function paladinwebgroup_enqueue()
 {
-    wp_enqueue_style('paladinwebgroup-style', get_stylesheet_uri());
-    wp_enqueue_style('main-styles-style', get_template_directory_uri() . '/assets/css/main.css');
+    wp_enqueue_style('paladinwebgroup-styles', get_stylesheet_uri(), array(), THEME_VERSION, 'all');
+    wp_enqueue_style('paladinwebgroup-main-styles', get_template_directory_uri() . '/assets/css/main.css', array('paladinwebgroup-styles'), THEME_VERSION, 'all');
     wp_enqueue_script('jquery');
     wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), NULL, true);
     wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), NULL, true);
