@@ -703,6 +703,8 @@ body > #wrapper > #container {
   .site-nav .nav-container .menu, .site-nav[aria-expanded] .nav-container .menu {
     display: flex;
     justify-content: flex-end;
+    gap: 1.5rem;
+    margin-right: 1rem;
   }
   .site-nav .nav-container div, .site-nav .nav-container li, .site-nav[aria-expanded] .nav-container div, .site-nav[aria-expanded] .nav-container li {
     margin-bottom: 0;

@@ -165,6 +165,8 @@
             .menu {
                display: flex;
                justify-content: flex-end; 
+               gap: 1.5rem;
+               margin-right: 1rem;
             }
             div, li {
                 margin-bottom: 0;
