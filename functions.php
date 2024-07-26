@@ -1,4 +1,8 @@
 <?php
+
+$theme = wp_get_theme();
+define('THEME_VERSION', $theme->Version); // gets version written in your style.css
+
 add_action('after_setup_theme', 'paladinwebgroup_setup');
 function paladinwebgroup_setup()
 {
@@ -10,6 +14,14 @@ function paladinwebgroup_setup()
     add_theme_support('html5', array('search-form', 'navigation-widgets'));
     add_theme_support('appearance-tools');
     add_theme_support('woocommerce');
+
+    // full-page (max-width) image
+    add_image_size('full-page', 1280);
+
+    // promo images
+    add_image_size('v-promo', 325);
+    add_image_size('h-promo', 782);
+
     global $content_width;
     if (!isset($content_width)) {
         $content_width = 1920;
@@ -26,13 +38,14 @@ function paladinwebgroup_setup()
 add_action('wp_enqueue_scripts', 'paladinwebgroup_enqueue');
 function paladinwebgroup_enqueue()
 {
-    wp_enqueue_style('paladinwebgroup-style', get_stylesheet_uri());
-    wp_enqueue_style('main-styles-style', get_template_directory_uri() . '/assets/css/main.css');
+    wp_enqueue_style('paladinwebgroup-styles', get_stylesheet_uri(), array(), THEME_VERSION, 'all');
+    wp_enqueue_style('paladinwebgroup-main-styles', get_template_directory_uri() . '/assets/css/main.css', array('paladinwebgroup-styles'), THEME_VERSION, 'all');
     wp_enqueue_script('jquery');
-    wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), NULL, true);
-    wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), NULL, true);
-    wp_enqueue_script('unclickable', get_template_directory_uri() . '/assets/js/unclickable.js', array(), NULL, true);
+    wp_enqueue_script('darkmode', get_template_directory_uri() . '/assets/js/darkmode.js', array(), THEME_VERSION, true);
+    wp_enqueue_script('nav', get_template_directory_uri() . '/assets/js/nav.js', array(), THEME_VERSION, true);
+    wp_enqueue_script('unclickable', get_template_directory_uri() . '/assets/js/unclickable.js', array(), THEME_VERSION, true);
 }
+
 add_action('wp_footer', 'paladinwebgroup_footer');
 function paladinwebgroup_footer()
 {
@@ -244,3 +257,168 @@ function my_wp_nav_menu_items( $items, $args ) {
     return $items;
     
 }
+
+
+
+/**
+ * Custom comic taxonomy args
+ */
+function my_pre_get_posts( $query ) {
+    
+    // do not modify queries in the admin
+    if( is_admin() ) {
+        
+        return $query;
+        
+    }
+    
+    // only modify queries for 'comics' post type
+    if( is_comic($query)) {
+        // this overrides local custom query args
+        // $query->set('posts_per_page', 5);
+        $query->set('orderby', 'meta_value');    
+        $query->set('meta_key', 'episode');    
+        $query->set('order', 'DESC'); 
+    }
+    
+    // return
+    return $query;
+
+}
+add_action('pre_get_posts', 'my_pre_get_posts');
+
+/**
+ * Set up custom comic body classes
+ */
+add_filter('body_class', 'comics_body_class');
+function comics_body_class($classes) {
+    if ( is_comic() ) {
+        $classes[] = get_post_type();
+        $classes[] = 'comic';
+        if ( is_archive() ) {
+            $classes[] = 'comic-feed';
+        } else {
+            $classes[] = 'comic-single';
+        }
+    }
+    
+    return $classes;
+}
+
+/**
+ * Register full-page image size in the admin menu
+ */
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+
+function my_custom_sizes( $sizes ) {
+return array_merge( $sizes, array(
+'full-page' => __( 'Full Page' ),
+) );
+}
+/**
+ * prev_post_link and next_post_link
+ * 
+ */
+// add back to beginning and back to latest buttons on post_nav on comics
+add_filter( 'previous_post_link', function( $output, $format, $link, $post ) {
+
+    if (is_comic()) {
+        $args = array(
+            'numberposts' => 1,
+            'post_type' => get_post_type(),
+            'meta_query' => array(
+                array(
+                    'key'   => 'episode',
+                    'value' => '1',
+                )
+            )
+        );
+        $first_post = get_posts( $args );
+
+        if ($post) {
+    
+            $output = sprintf(
+                '<div class="nav-prev"><a href="%1$s" title="%2$s"><i class="fa-solid fa-caret-left"></i><span class="label"> %2$s</span></a></div>',
+                get_permalink(  $post->ID ),
+                get_the_title(  $post->ID )
+            );
+            $first_link = sprintf(
+                '<div class="nav-first"><a href="%1$s" title="%2$s"><i class="fa-solid fa-backward"></i><span class="label"> First Episode</span></a></div>',
+                get_permalink( $first_post[0]->ID ),
+                get_the_title( $first_post[0]->ID )
+            );
+        } else { // if post is empty, were're on page 1 already
+            $output = sprintf(
+                '<div class="nav-previous"><a class="unclickable" title="%1$s" rel="prev"><span class="meta-nav"><i class="fa-solid fa-caret-left" aria-hidden="true"></i></span><span class="label"> %1$s</span></a></div>', get_the_title( $first_post[0]->ID )
+            );
+            $first_link = sprintf(
+                '<div class="nav-first"><a class="unclickable" title="%1$s" rel="first"><i class="fa-solid fa-backward"></i><span class="label"> First Episode</span></a></div>',
+                get_the_title( $first_post[0]->ID )
+            );
+        }
+
+        echo $first_link . $output;
+    }
+}, 10, 4 );
+
+add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
+    if (is_comic()) {
+        $args = array(
+            'numberposts' => 1,
+            // 'orderby' => 'meta_value',
+            // 'meta_key' => 'episode',
+            'order' => 'DESC',
+            'post_type' => get_post_type() ,
+            'meta_query' => array(
+                array(
+                    'key'   => 'episode',
+                    // 'value' => 'yes',
+                )
+            )
+        );
+        //'numberposts=1&order=ASC'
+        $last_post = get_posts( $args );
+        if ($post) {
+            $output = sprintf(
+                '<div class="nav-next"><a href="%1$s" title="%2$s"><span class="label">%2$s </span><i class="fa-solid fa-caret-right"></i></a></div>',
+                get_permalink( $post->ID ),
+                get_the_title( $post->ID )
+            );
+            $last_link = sprintf(
+                '<div class="nav-last"><a href="%1$s" title="%2$s"><span class="label">Last Episode </span><i class="fa-solid fa-forward"></i></a></div>',
+                get_permalink( $last_post[0]->ID ),
+                get_the_title( $last_post[0]->ID )
+            );
+        } else { // if $post is empty we're already on the last post
+            $output = sprintf(
+                '<div class="nav-next"><a class="unclickable" title="%1$s"><span class="label">%1$s </span><i class="fa-solid fa-caret-right"></i></a></div>',
+                get_the_title( $last_post[0]->ID )
+            );
+            $last_link = sprintf(
+                '<div class="nav-last"><a class="unclickable" title="%1$s"><span class="label">Last Episode </span><i class="fa-solid fa-forward"></i></a></div>',
+                get_the_title( $last_post[0]->ID )
+            );
+
+        }
+
+        echo $output . $last_link;
+    }
+}, 10, 4 );
+
+
+/**
+ * is_comic returns bool
+ * this helper function is used throughout this file
+ * Update this for every new comic
+ */
+function is_comic($query=[]) {
+    if( isset($query->query_vars['post_type']) ) {
+        return (
+            $query->query_vars['post_type'] == 'campaign' ||
+            $query->query_vars['post_type'] == 'paledragon'
+        );
+    }
+    return get_post_type() == 'campaign' || get_post_type() == 'paledragon';
+}
+
+?>

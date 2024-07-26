@@ -1,9 +1,10 @@
 .search-form {
     display: flex;
     .search-field {
-        border-right:none;
         border-radius: var(--bdrs) 0 0 var(--bdrs);
         height: 40px;
+        border: 1px solid var(--color-fg-buttons);
+        border-right:none;
     }
     .search-submit {
         border: 1px solid var(--color-fg-buttons);

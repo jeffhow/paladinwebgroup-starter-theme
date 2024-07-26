@@ -12,7 +12,7 @@
         'post_type' => 'cta',
         'tax_query' => array(
             array(
-                'taxonomy' => 'theme-location',
+                'taxonomy' => 'theme_location',
                 'field' => 'slug',
                 'terms' => $location
             )
@@ -99,6 +99,6 @@
 
 <?php 
         endwhile; // jumbo_query
+        wp_reset_postdata();
     endif; // jumbo_query have_posts()
-    wp_reset_postdata();
 ?>

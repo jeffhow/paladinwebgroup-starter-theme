@@ -1,0 +1,11 @@
+
+.campaign {
+    --campaign-red: hsla(0, 100%, 19%,1); // 600000
+    --campaign-black: hsla(0, 0%, 0%, 1);
+    --campaign-white: hsla(0, 0%, 100%, 1);
+    
+    --color-fg-comic: var(--campaign-black);
+    --color-bg-comic: var(--campaign-white);
+    --color-secondary-comic: var(--campaign-red);
+
+}

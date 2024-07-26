@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: clamp(1rem, 2rem, 4rem);
 
-    .post {
+    article {
         background-color: var(--color-bg-default);
         box-shadow: var(--bs);
         padding: 1rem;

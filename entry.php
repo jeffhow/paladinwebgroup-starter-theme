@@ -7,6 +7,8 @@
             <?php 
                 if ( is_singular() ) { 
                     echo '<h1 class="entry-title" itemprop="headline">'; 
+                } elseif (get_post_type() != "post") {
+                    echo '<h3 class="entry-title">'; 
                 } else { 
                     echo '<h2 class="entry-title">'; 
                 } 
@@ -16,8 +18,15 @@
                 title="<?php the_title_attribute(); ?>"
                 rel="bookmark"><?php the_title(); ?></a>
 
-            <?php if ( is_singular() ) { echo '</h1>'; } else { echo '</h2>'; } ?>
-
+            <?php 
+                if ( is_singular() ) { 
+                    echo '</h1>'; 
+                } elseif (get_post_type() != "post") {
+                    echo '</h3>';
+                } else { 
+                    echo '</h2>'; 
+                } 
+            ?>
             <?php edit_post_link(); ?>
 
             <?php if ( !is_search() ) { get_template_part( 'entry', 'meta' ); } ?>

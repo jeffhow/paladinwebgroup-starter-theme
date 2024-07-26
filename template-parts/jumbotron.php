@@ -7,12 +7,12 @@
      */ 
     $location = $args['location'] ?? 'default';
 
-    $jumbo_args = array (
+    $jumbo_args = array(
         'posts_per_page' => 1, // just the newest
         'post_type' => 'jumbotron',
         'tax_query' => array(
             array(
-                'taxonomy' => 'theme-location',
+                'taxonomy' => 'theme_location',
                 'field' => 'slug',
                 'terms' => $location
                 // 'terms' => 'front-page'
@@ -24,7 +24,6 @@
         while ( $jumbo_query->have_posts() ) : 
             $jumbo_query->the_post();      
             $image = get_field('hero_image'); ?>
-
             <div class="jumbotron <?php echo ($image) ? 'jumbotron-hero':''; ?>">
             
                 <?php 
@@ -99,6 +98,6 @@
 
 <?php 
         endwhile; // jumbo_query
+        wp_reset_postdata();
     endif; // jumbo_query have_posts()
-    wp_reset_postdata();
 ?>
