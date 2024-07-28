@@ -1,4 +1,8 @@
+
 <?php // Ad space
+// global $post; 
+$this_page_name = str_replace(" ", "-", strtolower($post->post_title)); // campaign or paledragon
+
 $promo_args = array(
     'posts_per_page' => 3, 
     'post_type' => 'promo',
@@ -6,7 +10,7 @@ $promo_args = array(
         array(
             'taxonomy' => 'theme_location',
             'field' => 'slug',
-            'terms' => array(get_post_type(), 'comics'),
+            'terms' => array(get_post_type(), 'comics', $this_page_name),
             // don't include all books that are children
             'include_children' => false 
         ),
@@ -19,15 +23,25 @@ if ( $promo_query->have_posts() ) : ?>
 
         <?php while ( $promo_query->have_posts() ) : 
             $promo_query->the_post(); 
-            $h_image = get_field('horizontal_image');
-            $v_image = get_field('vertical_image');
+            $image = get_field('horizontal_image');
+            // $v_image = get_field('vertical_image');
             $description = get_field('description');
             $cta = get_field('cta_link');
         ?>
             <section>
-            <?php if ($v_image && $h_image): 
-                $h_url = $h_image['sizes']['h-promo'];
-                $v_url = $v_image['sizes']['v-promo'];
+            <?php if ($image):
+                // Image variables.
+                $title = $image['title'];
+                $alt = $image['alt'];
+                $caption = $image['caption']; 
+                // large size attributes.
+                $size = 'full-page';
+                $width = $image['sizes'][ $size . '-width' ];
+                $height = $image['sizes'][ $size . '-height' ];
+                $url = $image['sizes'][$size];
+                // $h_url = $image['sizes']['h-promo'];
+                // $v_url = $v_image['sizes']['v-promo'];
+                $srcset = wp_get_attachment_image_srcset( $image['id'], array( 'medium', 'medium_large', 'large' ) );
             ?>
                 <?php if ($cta) : 
                     $cta_url = $cta['url'];
@@ -40,18 +54,15 @@ if ( $promo_query->have_posts() ) : ?>
                         target="<?php echo esc_attr($cta_target); ?>"
                     >
                 <?php endif; ?>
-                    <picture>
-                        <source 
-                            media="(min-width: 782px)" 
-                            srcset="<?php echo esc_url($v_url); ?>" />
-                        <source 
-                            media="(max-width: 782px)" 
-                            srcset="<?php echo esc_url($h_url); ?>" />
-                        <img 
-                            src="<?php echo esc_url($v_url); ?>" 
-                            alt="<?php echo esc_attr($description); ?>" 
-                            class="fluid" />
-                    </picture>
+                    <img 
+                        width="<?php echo $width; ?>"
+                        height="<?php echo esc_attr($height); ?>"
+                        srcset="<?php echo esc_attr($srcset); ?>"
+                        src="<?php echo esc_url($url); ?>" 
+                        alt="<?php echo esc_attr($alt); ?>" 
+                        title="<?php echo esc_attr($title); ?>" 
+                        class="fluid hero-image"  
+                    />
                 <?php if ($cta) : ?>
                     </a>
                 <?php endif; ?>

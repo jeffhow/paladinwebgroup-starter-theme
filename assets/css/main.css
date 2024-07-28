@@ -485,6 +485,15 @@ img.fluid {
   pointer-events: none;
 }
 
+.hide-visually {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+
 body > #wrapper {
   min-height: calc(100vh - var(--wpadminbar));
   display: grid;
@@ -514,30 +523,34 @@ body > #wrapper > #container {
   z-index: 2;
   text-align: center;
 }
-#branding #site-title {
-  font-size: 3rem;
-  display: inline-block;
-  width: var(--site-logo-width);
-  height: 100%;
-  background-image: var(--site-logo-uri);
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: auto;
+#branding #site-title .site-logo {
+  height: 3rem;
+}
+#branding #site-title a {
   transition: var(--trx);
+  display: inline-block;
+  border-radius: 6px 0;
+}
+#branding #site-title a:hover, #branding #site-title a:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-fg-primary);
+  animation-duration: 1s;
+  animation-name: pulseshadow;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 #branding #site-title h1 {
-  font-size: 3rem;
-}
-#branding #site-title:hover {
-  filter: drop-shadow(0 0 0.75rem crimson);
-}
-#branding #site-title a span {
-  display: block;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+  margin: 0;
+  line-height: 0;
 }
 
+@keyframes pulseshadow {
+  0% {
+    box-shadow: 0 0 0 0px white, 0 0 0 0px var(--color-fg-primary);
+  }
+  100% {
+    box-shadow: 0 0 0 2px white, 0 0 0 5px var(--color-fg-primary);
+  }
+}
 @media screen and (min-width: 782px) {
   .site-header {
     display: grid;
@@ -1287,6 +1300,48 @@ form[class^=wpcf7] [class*=response-output] {
   color: var(--color-fg-default);
 }
 
+.updates {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+.updates a {
+  opacity: 0.8;
+  transition: var(--trx);
+  margin-bottom: 0.5rem;
+}
+.updates a:hover, .updates a:focus-visible {
+  opacity: 1;
+}
+.updates section {
+  position: relative;
+}
+.updates section .post-edit-link {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  transition: var(--trx);
+}
+.updates section .post-edit-link:hover, .updates section .post-edit-link:focus-visible {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 782px) {
+  .updates {
+    margin-bottom: 0;
+  }
+  .updates a {
+    margin-bottom: 0;
+  }
+}
 :root {
   --color-fg-comic: black;
   --color-bg-comic: white;
@@ -1322,39 +1377,6 @@ form[class^=wpcf7] [class*=response-output] {
 }
 .comic .page-art, .comic .updates {
   margin-bottom: 2rem;
-}
-.comic .updates {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  margin-top: 2rem;
-  gap: 1rem;
-}
-.comic .updates a {
-  opacity: 0.8;
-  transition: var(--trx);
-  margin-bottom: 0.5rem;
-}
-.comic .updates a:hover, .comic .updates a:focus-visible {
-  opacity: 1;
-}
-.comic .updates section {
-  position: relative;
-}
-.comic .updates section .post-edit-link {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: black;
-  padding: 0.5rem;
-  border-radius: 5px;
-  font-size: 0.75rem;
-  transition: var(--trx);
-}
-.comic .updates section .post-edit-link:hover, .comic .updates section .post-edit-link:focus-visible {
-  background-color: #fff;
 }
 .comic .episode-title {
   margin: 1rem 0;
@@ -1410,40 +1432,6 @@ form[class^=wpcf7] [class*=response-output] {
 }
 
 @media screen and (min-width: 782px) {
-  .comic .comic-page {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    gap: 1rem;
-  }
-  .comic .comic-page:has(.updates) {
-    grid-template-columns: 1fr 25%;
-  }
-  .comic .comic-page .episode-title {
-    grid-area: 1/1/2/3;
-  }
-  .comic .comic-page .page-art {
-    grid-area: 2/1/3/2;
-  }
-  .comic .comic-page .full-script {
-    grid-area: 3/1/4/3;
-  }
-  .comic .comic-page .comic-blog {
-    grid-area: 4/1/5/3;
-  }
-  .comic .comic-page .comic-footer {
-    grid-area: 5/1/6/3;
-  }
-  .comic .comic-page .updates {
-    grid-area: 2/2/3/3;
-    min-width: 200px;
-    max-width: 325px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .comic .comic-page .updates a {
-    margin-bottom: 0;
-  }
   .comic .comic-nav [class^=nav] {
     font-size: 1rem;
     width: auto;
@@ -1491,6 +1479,9 @@ form[class^=wpcf7] [class*=response-output] {
 }
 .comic-cards article header * {
   color: var(--color-bg-comic);
+}
+.comic-cards article header .entry-title {
+  margin-top: 0;
 }
 .comic-cards article header .entry-meta {
   margin-bottom: 0;

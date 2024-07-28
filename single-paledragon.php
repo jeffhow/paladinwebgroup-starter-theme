@@ -56,8 +56,8 @@
     ?>
 <?php endwhile; endif; ?>
 
-<?php get_template_part( 'template-parts/promos'); ?>
-
 </section><!-- /.comic-page -->
+
+<?php get_template_part( 'template-parts/promos'); ?>
 
 <?php get_footer(); ?>

@@ -14,17 +14,12 @@
         <header id="header" role="banner" class="site-header">
             <div id="branding">
                 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                    <?php
-                        if ( is_front_page() || is_home() || is_front_page() && is_home() ) { 
-                            echo '<h1>'; 
-                        }
-                        
-                        echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url" tabindex="2"><span itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span></a>';
-                        
-                        if ( is_front_page() || is_home() || is_front_page() && is_home() ) {
-                            echo '</h1>'; 
-                        }
-?>
+                    <?php echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url" tabindex="2">'; ?>
+                        <h1>
+                            <img class="site-logo" src="<?php echo get_template_directory_uri();?>/assets/images/deadline-comics.svg" alt="deadline comics logo">
+                            <?php echo '<span itemprop="name" class="hide-visually">' . esc_html( get_bloginfo( 'name' ) ) . '</span>'; ?>
+                        </h1>
+                    </a>
                 </div>
                 
             </div>

@@ -292,7 +292,11 @@ add_action('pre_get_posts', 'my_pre_get_posts');
  */
 add_filter('body_class', 'comics_body_class');
 function comics_body_class($classes) {
-    if ( is_comic() ) {
+    global $post;
+    $post_slug = $post->post_name;
+    $classes[] = $post_slug;
+
+    if ( is_comic() || $post_slug == "campaign" || $post_slug == "paledragon" ) {
         $classes[] = get_post_type();
         $classes[] = 'comic';
         if ( is_archive() ) {
@@ -301,7 +305,6 @@ function comics_body_class($classes) {
             $classes[] = 'comic-single';
         }
     }
-    
     return $classes;
 }
 

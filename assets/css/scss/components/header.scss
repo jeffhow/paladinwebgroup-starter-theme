@@ -10,33 +10,39 @@
     text-align: center;
 
     #site-title {
-        font-size: 3rem;
-        display: inline-block;
-        width: var(--site-logo-width);
-        height: 100%;
-        background-image: var(--site-logo-uri);
-        background-repeat: no-repeat;
-        background-position: center;
-        margin: auto;
-        transition: var(--trx);
-        h1 {
-            font-size: 3rem;
-            
+        
+        .site-logo {
+            height: 3rem;
         }
-        &:hover {
-            filter: drop-shadow(0 0 0.75rem crimson);
-        }
+
         a {
-            span {
-                display: block;
-                text-indent:100%;
-                white-space: nowrap;
-                overflow: hidden;
+            transition: var(--trx);
+            // necessary for logo hover effect
+            display: inline-block;
+            border-radius: 6px 0;
+            &:hover, &:focus-visible {
+                box-shadow: 0 0 0 3px var(--color-fg-primary);
+                animation-duration: 1s;
+                animation-name: pulseshadow;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
             }
+        }
+        h1 {
+            margin: 0;
+            line-height: 0; // removes extra height from logo
         }
     }
 }
-
+@keyframes pulseshadow {
+    0% {
+        box-shadow: 0 0 0 0px white, 0 0 0 0px var(--color-fg-primary);
+    }
+    
+    100% {
+        box-shadow: 0 0 0 2px white, 0 0 0 5px var(--color-fg-primary);
+    }
+}
 @media screen and (min-width: 782px) {
     .site-header {
         display: grid;

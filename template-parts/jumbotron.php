@@ -39,7 +39,7 @@
                         $caption = $image['caption'];
         
                         // large size attributes.
-                        $size = 'large';
+                        $size = 'full-page';
                         $width = $image['sizes'][ $size . '-width' ];
                         $height = $image['sizes'][ $size . '-height' ];
                         $url = $image['sizes'][$size];

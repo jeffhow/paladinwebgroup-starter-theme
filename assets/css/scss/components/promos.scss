@@ -1,0 +1,43 @@
+.updates {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1rem;
+    a {
+        opacity: 0.8;
+        transition: var(--trx);
+        margin-bottom: .5rem;
+        &:hover, &:focus-visible {
+            opacity: 1;
+        }
+    }
+    section {
+        position: relative;
+        .post-edit-link {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            transition: var(--trx);
+            &:hover, &:focus-visible {
+                background-color: #fff;
+            }   
+        }
+    }
+}
+
+
+@media screen and (min-width: 782px) {
+    .updates {
+        margin-bottom: 0;
+        a {
+            margin-bottom: 0;
+        }
+    }
+}

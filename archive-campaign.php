@@ -74,9 +74,11 @@ if ( $comic_query->have_posts() ) : ?>
                 </nav>
             </footer>
 
+       
             
         <?php endwhile; ?>
             
+
     <?php 
 wp_reset_postdata();
 endif; 
