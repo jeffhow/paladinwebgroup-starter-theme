@@ -1299,6 +1299,87 @@ form[class^=wpcf7] span[class*=not-valid] {
 form[class^=wpcf7] [class*=response-output] {
   color: var(--color-fg-default);
 }
+form[class^=wpcf7] input[type=submit] {
+  transition: var(--trx);
+  border: 3px solid var(--color-bg-default);
+  width: auto;
+  padding: 0.5rem 3rem;
+}
+form[class^=wpcf7] input[type=submit]:hover, form[class^=wpcf7] input[type=submit]:focus-visible {
+  border: 3px solid var(--color-fg-primary);
+}
+
+h2.mailing-list-header {
+  text-align: center;
+  line-height: 2rem;
+}
+
+.mailing-list-text {
+  text-align: center;
+}
+
+form.mailing-list-form {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  background-image: url("../images/submit-or-die.jpg");
+  background-size: cover;
+  background-position: 25% center;
+  position: relative;
+  padding: 0;
+}
+form.mailing-list-form label, form.mailing-list-form span[class*=not-valid] {
+  color: white;
+}
+form.mailing-list-form a {
+  color: gainsboro;
+}
+form.mailing-list-form .form-controls-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(56, 1, 1, 0.7);
+  padding: 3rem 3rem 0 3rem;
+}
+form.mailing-list-form .form-controls-wrapper p:last-of-type {
+  margin: 0;
+  padding-bottom: 3rem;
+}
+form.mailing-list-form .wpcf7-response-output {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(56, 1, 1, 0.7);
+  padding: 3rem;
+  margin: 0;
+  border: none;
+  color: white;
+  position: relative;
+}
+form.mailing-list-form .wpcf7-response-output::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: inset 0 0 0 5px red;
+}
+form.mailing-list-form input {
+  opacity: 0.8;
+}
+form.mailing-list-form #checkbox-privacy-agree[class*=not-valid] {
+  border-left: none;
+  padding: 0;
+}
+form.mailing-list-form #checkbox-privacy-agree + span[class*=not-valid] {
+  display: block;
+  position: absolute;
+  width: 500px;
+  top: 1rem;
+  left: 1rem;
+}
+form.mailing-list-form input[type=checkbox] ~ span {
+  display: none;
+}
 
 .updates {
   display: flex;
