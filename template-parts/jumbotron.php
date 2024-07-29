@@ -66,12 +66,12 @@
                 <div class="jumbotron-statement 
                     <?php echo esc_attr($v_placement) . ' ' . esc_attr($h_placement); ?>"
                     style="<?php 
-                        echo esc_attr( $text_color ? "color: $text_color;" : "" ); 
-                        echo esc_attr( $background_color ? "background-color: $background_color; " : "" ); 
+                        echo esc_attr( $text_color ? "--color-fg-jumbo: $text_color;" : "" ); 
+                        echo esc_attr( $background_color ? "--color-bg-jumbo: $background_color; " : "" ); 
                         ?>"
                 >
                         
-                    <p class="jumbotron-text"><?php the_field('jumbotron_header'); ?></p>
+                    <h2 class="jumbotron-text"><?php the_field('jumbotron_header'); ?></h2>
                     
                     <?php the_content(); ?>
 
@@ -84,7 +84,7 @@
                             $cta_target = $cta['target'] ? $cta['target'] : '_self';
                             ?>
                                 <a 
-                                    class="btn btn-cta" 
+                                    class="btn btn-jumbo" 
                                     href="<?php echo esc_url( $cta_url ); ?>" 
                                     target="<?php echo esc_attr( $cta_target ); ?>">
                                     <?php echo esc_html( $cta_title ); ?>

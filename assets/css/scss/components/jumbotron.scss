@@ -31,8 +31,8 @@
       width: calc(100% - 2rem);
       position: absolute;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: var(--bdrs);
+      background-color: var(--color-bg-jumbo);
+      // border-radius: var(--bdrs);
       transform: translate(-50%, -50%);
 
       // default position
@@ -59,9 +59,22 @@
         font-size: 2rem;
         margin: 1rem 0;
       }
-      p {
+      h2, p {
         // inherit color from ACF inline color on statement block
-        color: inherit;
+        color: var(--color-fg-jumbo);
+      }
+      .btn-jumbo {
+        font-family: var(--hfont);
+        color: var(--color-fg-jumbo);
+        background-color: var(--color-bg-jumbo);
+        border: 2px solid var(--color-fg-jumbo);
+        
+        &:hover, &:focus-visible {
+          color: var(--color-bg-jumbo);
+          background-color: var(--color-fg-jumbo);
+          border: 2px solid var(--color-bg-jumbo);
+          text-decoration: underline;
+        }
       }
     }
   }

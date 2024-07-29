@@ -17,6 +17,7 @@
 
     --color-fg-links: #555; 
     --color-fg-links-hover: #444;
+    --color-fg-jumbo: var(--color-fg-default);
 
     --color-fg-buttons:#333;
     --color-bg-buttons: #eee;
@@ -28,6 +29,7 @@
     --color-bg-primary: #BADA55;
     --color-bg-secondary: #ccc;
     --color-bg-toggle: #e5e0e0;
+    --color-bg-jumbo: var(--color-bg-default);
 }
 
 * {

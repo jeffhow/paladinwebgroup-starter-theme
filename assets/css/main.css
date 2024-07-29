@@ -315,6 +315,7 @@ section {
   --color-fg-secondary: #888;
   --color-fg-links: #555;
   --color-fg-links-hover: #444;
+  --color-fg-jumbo: var(--color-fg-default);
   --color-fg-buttons:#333;
   --color-bg-buttons: #eee;
   --color-bg-default: #fff;
@@ -323,6 +324,7 @@ section {
   --color-bg-primary: #BADA55;
   --color-bg-secondary: #ccc;
   --color-bg-toggle: #e5e0e0;
+  --color-bg-jumbo: var(--color-bg-default);
 }
 
 * {
@@ -1161,8 +1163,7 @@ body > #wrapper > #container {
   width: calc(100% - 2rem);
   position: absolute;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: var(--bdrs);
+  background-color: var(--color-bg-jumbo);
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
@@ -1183,8 +1184,20 @@ body > #wrapper > #container {
   font-size: 2rem;
   margin: 1rem 0;
 }
-.jumbotron.jumbotron-hero .jumbotron-statement p {
-  color: inherit;
+.jumbotron.jumbotron-hero .jumbotron-statement h2, .jumbotron.jumbotron-hero .jumbotron-statement p {
+  color: var(--color-fg-jumbo);
+}
+.jumbotron.jumbotron-hero .jumbotron-statement .btn-jumbo {
+  font-family: var(--hfont);
+  color: var(--color-fg-jumbo);
+  background-color: var(--color-bg-jumbo);
+  border: 2px solid var(--color-fg-jumbo);
+}
+.jumbotron.jumbotron-hero .jumbotron-statement .btn-jumbo:hover, .jumbotron.jumbotron-hero .jumbotron-statement .btn-jumbo:focus-visible {
+  color: var(--color-bg-jumbo);
+  background-color: var(--color-fg-jumbo);
+  border: 2px solid var(--color-bg-jumbo);
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 782px) {
