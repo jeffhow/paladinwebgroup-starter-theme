@@ -412,6 +412,31 @@ add_filter( 'next_post_link', function( $output, $format, $link, $post ) {
 }, 10, 4 );
 
 
+// Custom admin columns for comic episodes
+function custom_columns( $columns ) {
+    $post_type = get_post_type();
+    if ($post_type == 'campaign' || $post_type == 'paledragon') {
+        $columns['episode'] = 'episode';
+    }
+    return $columns;
+}
+
+add_filter('manage_posts_columns' , 'custom_columns');
+
+// Custom admin columns for comic episodes continued
+function custom_columns_data( $column, $post_id ) {
+    switch ( $column ) {
+    
+    case 'episode' :
+            echo get_field( 'episode', $post_id );
+            break;
+    }
+
+}
+
+add_action( 'manage_posts_custom_column' , 'custom_columns_data', 10, 2 ); 
+
+
 /**
  * is_comic returns bool
  * this helper function is used throughout this file
