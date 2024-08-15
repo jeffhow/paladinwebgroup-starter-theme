@@ -276,7 +276,7 @@ function my_pre_get_posts( $query ) {
     if( is_comic($query)) {
         // this overrides local custom query args
         // $query->set('posts_per_page', 5);
-        $query->set('orderby', 'meta_value');    
+        $query->set('orderby', 'meta_value_num');    
         $query->set('meta_key', 'episode');    
         $query->set('order', 'DESC'); 
     }
@@ -293,6 +293,9 @@ add_action('pre_get_posts', 'my_pre_get_posts');
 add_filter('body_class', 'comics_body_class');
 function comics_body_class($classes) {
     global $post;
+    if (is_null($post)) {
+        return $classes; // prevent 404 page error
+    }
     $post_slug = $post->post_name;
     $classes[] = $post_slug;
 
